@@ -193,7 +193,8 @@ function _prompt_command() {
   set_virtualenv
 
   # Set the BRANCH variable.
-  if is_git_repository ; then
+  if is_git_repository; then
+    echo "Foo"
     set_git_branch
   else
     BRANCH=''
