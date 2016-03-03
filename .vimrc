@@ -34,10 +34,14 @@ set nocursorline
 " Highlight bracers for C like languages
 set showmatch
 
-" Search as you type, ignore case and show everything
+" Search as you type, ignore case unless we type in uppercase and show everything
 set ignorecase
 set incsearch
 set hlsearch
+set smartcase
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
 
 " Autocomplete
 set wildmenu
@@ -64,3 +68,11 @@ map <leader>pp :setlocal paste!<cr>
 
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
+
+" Keep undo history across sessions, by storing in file.
+" Only works all the time.
+if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
