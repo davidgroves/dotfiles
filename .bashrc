@@ -33,6 +33,16 @@ unset MAILCHECK
 # Make sure my homedirs bin directory is in the path
 export PATH=$PATH:~/bin
 
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
+
+# Prefer British English and use UTF-8.
+export LANG='en_GB-UTF-8';
+export LC_ALL='en_GB.UTF-8';
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
+
 ###########
 # ALIASES #
 ###########
