@@ -7,9 +7,108 @@
 # - https://github.com/jondavidjohn/dotfiles
 # - https://gist.github.com/insin/1425703
 
-######### #
-# GENERIC #
+###############
+# ENVIRONMENT #
+###############
+
+# Use vim as my editor for things like vipw or crontab -e
+# Most stuff looks at $EDITOR but ancient stuff might look at $VISUAL
+export EDITOR=vim
+export VISUAL=vim
+
+# Get coloured man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+export PATH=$PATH:~/bin
+
+# I never care about mail on unix machines these days
+shopt -u mailwarn
+unset MAILCHECK
+
+# Make sure my homedirs bin directory is in the path
+export PATH=$PATH:~/bin
+
 ###########
+# ALIASES #
+###########
+
+# Always run bc with -l so division works like you would expected.
+alias bc="bc -l"
+
+# Print mount output in a sane way
+alias cmount="mount | column -t"
+
+# Alias anti-typo
+alias sl=ls	# No steam locomotive please !
+
+# Dont bother with less if the output is shorter than a single screen
+alias less="less -FX"
+
+# Shorter things
+alias gits="git status"
+alias gitd="git diff"
+alias gitco="git checkout"
+alias gitc="git commit -v"
+alias ..="cd .."
+
+
+
+
+#############
+# FUNCTIONS #
+#############
+
+# Akamai curl with all the debug options specific to Akamai turned on
+akacurl() {
+  curl -I -H "Pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-nonces, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no" $*
+}
+
+# Lets you create tarballs of things with tgz $DIRNAME
+tgz() {
+  tar -zcvf "$1.tar.gz" "$1"
+}
+
+# Generic extraction function for all kinds of archived things.
+function extract() {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1     ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1      ;;
+            *.rar)       unrar x $1      ;;
+            *.gz)        gunzip $1       ;;
+            *.tar)       tar xvf $1      ;;
+            *.tbz2)      tar xvjf $1     ;;
+            *.tgz)       tar xvzf $1     ;;
+            *.zip)       unzip $1        ;;
+            *.Z)         uncompress $1   ;;
+            *.7z)        7z x $1         ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+# Sets the window terminal title to something. For example :-
+# title foo.
+# Is somewhat terminal dependant so might not work on everything.
+title() {
+    case "$TERM" in
+    *term* | rxvt)
+        echo -en  "\e]0;$*\a" ;;
+    *)  ;;
+    esac
+}
+
+########
+# MISC #
+########
 
 # Update window size after every command
 shopt -s checkwinsize
@@ -148,7 +247,10 @@ function set_git_branch {
   fi
 
   # Get the name of the branch.
-  branch_pattern="^# On branch ([^${IFS}]*)"
+  # WARNING: On some versions of git, this needs to be 
+  # branch_pattern="^# On branch ([^${IFS}]*)"
+
+  branch_pattern="^On branch ([^${IFS}]*)"
   if [[ ${git_status} =~ ${branch_pattern} ]]; then
     branch=${BASH_REMATCH[1]}
   fi
@@ -194,7 +296,6 @@ function _prompt_command() {
 
   # Set the BRANCH variable.
   if is_git_repository; then
-    echo "Foo"
     set_git_branch
   else
     BRANCH=''
