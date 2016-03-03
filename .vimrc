@@ -1,7 +1,17 @@
+" Set utf8 as standard encoding
+set encoding=utf8
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
 " Set sensible number of tabs
 set tabstop=4
 
 " Dont actually insert a <tab> when you press it, put 4 spaces instead
+set smarttab
 set expandtab
 set softtabstop=4
 
@@ -44,4 +54,12 @@ set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
+" Use , for custom commands
+let mapleader = ","
+let g:mapleader = ","
 
+" Pressing ,pp will toggle paste mode
+map <leader>pp :setlocal paste!<cr>
+
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
