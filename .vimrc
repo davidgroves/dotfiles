@@ -1,3 +1,7 @@
+" Dont worry about wierd old vi compatiblity
+" Do this first as some other options need it set to work
+set nocompatible
+
 " Set utf8 as standard encoding
 set encoding=utf8
 
@@ -34,9 +38,6 @@ set showmatch
 set ignorecase
 set incsearch
 set hlsearch
-
-" Dont worry about wierd old vi compatiblity
-set nocompatible
 
 " Autocomplete
 set wildmenu
