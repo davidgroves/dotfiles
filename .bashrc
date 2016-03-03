@@ -56,9 +56,6 @@ alias gitco="git checkout"
 alias gitc="git commit -v"
 alias ..="cd .."
 
-
-
-
 #############
 # FUNCTIONS #
 #############
