@@ -14,5 +14,5 @@ for FILE in .*; do
     echo "Backing up $FILE"
     mv ~/.$FILE $BACKDIR
     echo "Creating symlink to $FILE in $HOME"
-    ln -s $dir/$file ~/.$file
+    ln -s $dir/$file ~/$file
 done
