@@ -2,6 +2,7 @@
 
 DIR=~/dotfiles
 BACKDIR=~/dotfiles_old
+FILES="bashrc curlrc gitconfig inputrc osx psqlrc screenrc vimrc"
 
 # Create backups of old dotfiles
 mkdir -p $BACKDIR
@@ -10,9 +11,9 @@ mkdir -p $BACKDIR
 cd $DIR
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for FILE in .*; do
+for FILE in FILES; do
     echo "Backing up $FILE"
-    mv ~/$FILE $BACKDIR
+    mv ~/.$FILE $BACKDIR
     echo "Creating symlink to $FILE in $HOME"
-    ln -s $dir/$file ~/$file
+    ln -s $dir/$file ~/.$file
 done
