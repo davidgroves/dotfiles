@@ -11,7 +11,7 @@ mkdir -p $BACKDIR
 cd $DIR
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for FILE in FILES; do
+for FILE in $FILES; do
     echo "Backing up $FILE"
     mv ~/.$FILE $BACKDIR
     echo "Creating symlink to $FILE in $HOME"
