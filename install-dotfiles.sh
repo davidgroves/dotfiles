@@ -1,19 +1,16 @@
 #!/usr/bin/env bash
 
-DIR=~/dotfiles
-BACKDIR=~/dotfiles_old
-FILES="bashrc curlrc gitconfig inputrc osx psqlrc screenrc vimrc"
+SOURCEDIR=dotfiles
+BACKDIR=~/.dotfiles_old
 
-# Create backups of old dotfiles
-mkdir -p $BACKDIR
-
-# Install
-cd $DIR
+# Make backup dir if needed
+mkdir -p ~/$BACKDIR
 
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for FILE in $FILES; do
-    echo "Backing up $FILE"
-    mv ~/.$FILE $BACKDIR
-    echo "Creating symlink to $FILE in $HOME"
-    ln -s $DIR/.$FILE ~/.$FILE
+for FILE in `cd $SOURCEDIR; echo *`; do
+    echo $FILE
+    echo "Backing up $SOURCEDIR/$FILE to $BACKDIR/$FILE"
+    mv $SOURCEDIR/$FILE $BACKDIR/$FILE
+    echo "Creating symlink to dotfiles/$SOURCEDIR/.$FILE in $HOME"
+    ln -sf dotfiles/$SOURCEDIR/$FILE ~/.$FILE
 done

@@ -1,0 +1,15 @@
+# Readline configuration
+
+# Ignore case when you tab complete
+set completion-ignore-case on
+
+# Number of lines of history to retain
+set history-size 10000
+
+# When you tab complete directories, automatically add the /
+set mark-directories on
+set mark-symlinked-directories on
+
+# Don't need tab twice to show completions, just show on one press
+set show-all-if-ambiguous on
+set show-all-if-unmodified on

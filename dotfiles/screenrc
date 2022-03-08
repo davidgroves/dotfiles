@@ -1,0 +1,19 @@
+# GNU Screen options
+
+# Most important of all, get rid of silly splash page
+startup_message off
+
+# Bottom bar messages last 2 seconds and fade
+msgwait 2
+
+# Use bash as on some systems screen doesn't seem to want to
+shell bash
+
+# Status line explaining where this session is
+hardstatus alwayslastline "%{=b}%{G}Screen @ %0`@%H: %{C}%w %=%{G}%D, %m/%d"
+
+# Set a large scrollback buffer
+defscrollback 32000
+
+# Always start `screen` with UTF-8 enabled (`screen -U`)
+defutf8 on
