@@ -62,6 +62,9 @@ alias bc="bc -l"
 # Print mount output in a sane way
 alias cmount="mount | column -t"
 
+# Alias ll for wider ls I use allthe time.
+alias ll="ls -la"
+
 # Alias anti-typo
 alias sl=ls	# No steam locomotive please !
 
