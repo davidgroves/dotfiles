@@ -1,0 +1,1 @@
+dotfiles//home/dwg/dotfiles/dotfiles/bash_completion.d
