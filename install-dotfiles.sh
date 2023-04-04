@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SOURCEDIR=dotfiles
+SOURCEDIR=~/dotfiles/dotfiles
 BACKDIR=~/.dotfiles_old
 
 # Make backup dir if needed
