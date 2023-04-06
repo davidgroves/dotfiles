@@ -334,3 +334,6 @@ export PROMPT_COMMAND=_prompt_command
 
 # Run this or the first displayed prompt wont look correct.
 _prompt_command
+
+# Start the SSH agent
+eval `ssh-agent`
