@@ -1,4 +1,3 @@
-# bashrc from https://github.com/davidgroves/dotfiles
 # Many things sourced from these places
 # - https://github.com/mrzool/bash-sensible/blob/master/sensible.bash
 # - http://maketecheasier.com/8-useful-and-interesting-bash-prompts/2009/09/04
@@ -73,6 +72,7 @@ alias gitd="git diff"
 alias gitco="git checkout"
 alias gitc="git commit -v"
 alias ..="cd .."
+alias ll="ls -la"
 
 
 #############
@@ -319,11 +319,24 @@ function _prompt_command() {
    
   # First line with username@host and path 
   export PS1="\n$COLOR[\u@\h]$BLUE \w\n"
-  export PS1+="\[$txtcyn\][Git: $BRANCH\[$txtcyn\]]\[$txtrst\]"
-  export PS1+="\[$txtcyn\][Venv: \[$txtgrn\]${PYTHON_VIRTUALENV} \[$txtcyn\]]"
- 
-  # Last line is the return code of the previous command and the time. 
-  export PS1+="${RCODEDISPLAY} \t \\$ \[$(tput sgr0)\]"
+
+  # Second line is git/venv status
+  if [ x$BRANCH != "x" ]; then
+    export PS1+="\[$txtcyn\][Git: $BRANCH\[$txtcyn\]]\[$txtrst\]"
+  fi
+  if [ x$PYTHON_VIRTUALENV != "x" ]; then
+    export PS1+="\[$txtcyn\][Venv: \[$txtgrn\]${PYTHON_VIRTUALENV} \[$txtcyn\]]\n"
+  fi 
+
+  # Third line is the return code of the previous command and the time. 
+  export PS1+="${RCODEDISPLAY} \t \\] $(tput sgr0)\n"
+
+  # Final line is the prompt
+  if [ $UID -ne 0 ]; then
+    export PS1+="$ "
+  else
+    export PS1+="# "
+  fi
 }
 
 # Run this function after each command to generate the prompt
