@@ -40,6 +40,9 @@ set incsearch
 set hlsearch
 set smartcase
 
+" Relative line numbers
+set relativenumber
+
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
