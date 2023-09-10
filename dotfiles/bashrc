@@ -388,4 +388,8 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
-. "$HOME/.cargo/env"
+
+# Source rust environment if it exists
+if [ -f ${HOME}/.cargo/env ]; then
+    . "$HOME/.cargo/env"
+fi
