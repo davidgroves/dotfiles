@@ -395,4 +395,4 @@ if [ -f ${HOME}/.cargo/env ]; then
 fi
 
 # Code Insiders Alias for ci
-alias codei "code-insider --enable-features=UseOzonePlatform --ozone-platform=wayland"
+alias codei="code-insider --enable-features=UseOzonePlatform --ozone-platform=wayland"
