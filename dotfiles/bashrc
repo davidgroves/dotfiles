@@ -378,16 +378,17 @@ function start_agent {
 }
 
 # Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-    . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
-    }
-else
-    start_agent;
-fi
+# if [ -f "${SSH_ENV}" ]; then
+#     . "${SSH_ENV}" > /dev/null
+#     #ps ${SSH_AGENT_PID} doesn't work under cywgin
+#     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+#         echo Would start agent.
+#         # start_agent;
+#     }
+# else
+#     echo Would start agent.
+#     # start_agent;
+# fi
 
 # Source rust environment if it exists
 if [ -f ${HOME}/.cargo/env ]; then
@@ -404,3 +405,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Docker experimental features.
 export DOCKER_CLI_EXPERIMENTAL=enabled
+=======
+# Code Insiders Alias for ci
+alias codei="code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland"

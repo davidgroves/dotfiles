@@ -18,3 +18,9 @@ for FILE in `cd $SOURCEDIR; echo *`; do
     echo "Creating symlink to $SOURCEDIR/.$FILE in $HOME"
     ln -sf $SOURCEDIR/$FILE ~/.$FILE
 done
+
+# create a file for neovim
+echo "Setting up nvim config"
+mkdir -p ~/.config/nvim
+cp config/nvim/* ~/.config/nvim
+
