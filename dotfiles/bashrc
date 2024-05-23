@@ -74,6 +74,9 @@ alias gitc="git commit -v"
 alias ..="cd .."
 alias ll="ls -la"
 
+# Preserve environment when using sudo
+alias sudo="sudo -E"
+
 
 #############
 # FUNCTIONS #
