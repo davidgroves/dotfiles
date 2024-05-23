@@ -278,7 +278,7 @@ function set_git_branch {
 # Determine active Python virtualenv details.
 function set_virtualenv () {
   if test -z "$VIRTUAL_ENV" ; then
-      PYTHON_VIRTUALENV=""
+      PYTHON_VIRTUALENV="None"
   else
       PYTHON_VIRTUALENV="`basename \"$VIRTUAL_ENV\"`"
   fi
@@ -340,7 +340,11 @@ function _prompt_command() {
 }
 
 # Run this function after each command to generate the prompt
-export PROMPT_COMMAND=_prompt_command
+if [ ${WARP_HONOR_PS1} -eq 0 ]; then
+  export PROMPT_COMMAND=""
+else
+  export PROMPT_COMMAND=_prompt_command
+fi
 
 # Run this or the first displayed prompt wont look correct.
 _prompt_command
@@ -397,3 +401,7 @@ fi
 
 # Code Insiders Alias for ci
 alias codei="code-insiders --enable-features=UseOzonePlatform --ozone-platform=wayland"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
