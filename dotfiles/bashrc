@@ -295,7 +295,7 @@ function _prompt_command() {
   local RESET="\[$(tput sgr0)\]"
  
   # If the last command ran okay (return code 0) 
-  if [ $RCODE -eq 0 ]; then
+  if [ ${RCODE} -eq 0 ]; then
     RCODEDISPLAY=${GREEN}[${RCODE}]${BLUE}
   # And if it didnt (return code > 0)
   else
@@ -303,7 +303,7 @@ function _prompt_command() {
   fi
   
   # If we are root
-  if [ $UID -eq 0 ]; then	
+  if [ ${UID} -eq 0 ]; then	
     COLOR=$RED
   # And if we are not
   else	
@@ -335,7 +335,7 @@ function _prompt_command() {
   export PS1+="${RCODEDISPLAY} \t \\] $(tput sgr0)\n"
 
   # Final line is the prompt
-  if [ $UID -ne 0 ]; then
+  if [ ${UID} -ne 0 ]; then
     export PS1+="$ "
   else
     export PS1+="# "
@@ -343,11 +343,19 @@ function _prompt_command() {
 }
 
 # Run this function after each command to generate the prompt
-if [ ${WARP_HONOR_PS1} -eq 0 ]; then
+if [ "x${WARP_HONOR_PS1}" == 0 ]; then
   export PROMPT_COMMAND=""
 else
   export PROMPT_COMMAND=_prompt_command
 fi
+
+# So subshells like sudo work
+if [ x$UID == "0" ]; then
+    printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "theme": "Red Rock"}}\x9c'
+else
+    printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
+fi
+
 
 # Run this or the first displayed prompt wont look correct.
 _prompt_command
