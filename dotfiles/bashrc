@@ -343,7 +343,7 @@ function _prompt_command() {
 }
 
 # Run this function after each command to generate the prompt
-if [ ${WARP_HONOR_PS1} -eq 0 ]; then
+if [ x${WARP_HONOR_PS1} == "x0" ]; then
   export PROMPT_COMMAND=""
   export PS1="$ "
 else
