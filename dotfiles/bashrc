@@ -414,6 +414,16 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
+# texlive
+if [ -d /usr/local/texlive/ ]; then
+    if [ ! -d /usr/local/texlive/2024/bin/x86_64-linux/ ]; then
+        echo "ERROR: Found /usr/local/texlive but not /usr/local/texlive/2024/bin/x86_64-linux/"
+        echo "Fix PATH in dotfile for new texlive version ?"
+    else
+        export PATH=/usr/local/texlive/2024/bin/x86_64-linux/:$PATH
+    fi
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

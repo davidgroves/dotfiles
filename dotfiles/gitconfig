@@ -1,6 +1,7 @@
 [alias]
     # git l gives a really nice log
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    pr = pull --rebase
 
     # Switch to a branch, creating it if necessary
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -50,3 +51,5 @@
 [user]
 	email = git@fibrecat.org
 	name = David Groves
+[init]
+	defaultBranch = main
