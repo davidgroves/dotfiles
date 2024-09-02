@@ -80,7 +80,7 @@ alias ll="ls -la"
 # alias sudo="sudo -E"
 #
 # Coloured cat output.
-alias ccat='pygmentize -g -O style=colorful,linenos=1'
+alias ccat='pygmentize -g -O linenos=1'
 
 #############
 # FUNCTIONS #
