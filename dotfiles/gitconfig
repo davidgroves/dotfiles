@@ -4,7 +4,13 @@
 
     # Switch to a branch, creating it if necessary
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+    # My most common typo
 	pish = push
+
+[help]
+    # Wait 2 seconds before executing typo corrected commands.
+	autocorrect = 20
 
 [apply]
     # Detect whitespace errors when applying a patch
@@ -50,3 +56,5 @@
 [user]
 	email = git@fibrecat.org
 	name = David Groves
+[init]
+	defaultBranch = main
