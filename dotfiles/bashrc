@@ -78,7 +78,9 @@ alias ll="ls -la"
 
 # Preserve environment when using sudo
 # alias sudo="sudo -E"
-
+#
+# Coloured cat output.
+alias ccat='pygmentize -g -O linenos=1'
 
 #############
 # FUNCTIONS #
@@ -109,7 +111,7 @@ function extract() {
             *.zip)       unzip $1        ;;
             *.Z)         uncompress $1   ;;
             *.7z)        7z x $1         ;;
-            *)           echo "'$1' cannot be extracted via >extract<" ;;
+            *)           echo "'$1' unknown file extension, sorry !" ;;
         esac
     else
         echo "'$1' is not a valid file!"
@@ -414,6 +416,16 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
+# texlive
+if [ -d /usr/local/texlive/ ]; then
+    if [ ! -d /usr/local/texlive/2024/bin/x86_64-linux/ ]; then
+        echo "ERROR: Found /usr/local/texlive but not /usr/local/texlive/2024/bin/x86_64-linux/"
+        echo "Fix PATH in dotfile for new texlive version ?"
+    else
+        export PATH=/usr/local/texlive/2024/bin/x86_64-linux/:$PATH
+    fi
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -430,3 +442,26 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # Poke Warp
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
+
+### Make CTRL-L clear scrollback
+bind -x '"\C-l": clear;'
+
+
+### Bindings for fd + fzf
+cd_to_dir() {
+    local selected_dir
+    selected_dir=$(fdfind -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+    if [[ -n "$selected_dir" ]]; then
+        # Change to the selected directory
+        cd "$selected_dir" || return 1
+    fi
+}
+
+alias cdd='cd_to_dir .'
+
+# Bat is batcat
+alias bat="batcat"
+
+# If 
+if [ -f `which fzf` ]; then eval "$(fzf --bash)"; fi
+
