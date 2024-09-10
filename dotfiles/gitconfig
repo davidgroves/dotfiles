@@ -1,6 +1,8 @@
 [alias]
     # git l gives a really nice log
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+    # pull and rebase
     pr = pull --rebase
 
     # Switch to a branch, creating it if necessary

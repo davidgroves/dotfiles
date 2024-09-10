@@ -445,3 +445,23 @@ printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
 
 ### Make CTRL-L clear scrollback
 bind -x '"\C-l": clear;'
+
+
+### Bindings for fd + fzf
+cd_to_dir() {
+    local selected_dir
+    selected_dir=$(fdfind -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+    if [[ -n "$selected_dir" ]]; then
+        # Change to the selected directory
+        cd "$selected_dir" || return 1
+    fi
+}
+
+alias cdd='cd_to_dir .'
+
+# Bat is batcat
+alias bat="batcat"
+
+# If 
+if [ -f `which fzf` ]; then eval "$(fzf --bash)"; fi
+
