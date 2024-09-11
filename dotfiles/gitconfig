@@ -61,3 +61,5 @@
 	name = David Groves
 [init]
 	defaultBranch = main
+[branch]
+	sort = -committerdate
