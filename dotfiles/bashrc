@@ -465,3 +465,4 @@ alias bat="batcat"
 # If 
 if [ -f `which fzf` ]; then eval "$(fzf --bash)"; fi
 
+export PATH="$PATH:/home/dwg/.modular/bin"

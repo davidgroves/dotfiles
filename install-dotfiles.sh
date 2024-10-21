@@ -25,3 +25,8 @@ rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim
 cp -r config/nvim/* ~/.config/nvim
 
+echo "Setting up protobuff profiles"
+rm -r ~/.config/protobuffs
+mkdir -p ~/.config/protobuffs
+cp -r config/protobuffs/* ~/.config/protobuffs
+
