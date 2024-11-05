@@ -466,3 +466,6 @@ alias bat="batcat"
 if [ -f `which fzf` ]; then eval "$(fzf --bash)"; fi
 
 export PATH="$PATH:/home/dwg/.modular/bin"
+
+### Source Local Config
+source ~/.bashrc.local
