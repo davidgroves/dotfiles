@@ -21,7 +21,7 @@ A checklist of tools I'd like to install on a workstation system, with Debian 12
 
 
 ```
-# Debian 12 install 
+######## Debian 12 install 
 
 sudo snap install cheat
 sudo apt install fd-find
@@ -38,5 +38,19 @@ sudo apt install bat
 sudo apt install ripgrep pandoc poppler-utils ffmpeg
 
 # Ripgrep-all must have the binary installed manually.
+```
+
+```
+######### OSX / Homebrew Install
+
+brew install cheat
+brew install ffind
+brew install pipx
+brew install dust
+brew install grip
+brew install fzf
+brew install jq
+brew install hyperfine
+brew install bat
 ```
 
