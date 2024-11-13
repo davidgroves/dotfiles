@@ -4,6 +4,8 @@ A collection of dotfiles used by myself. Mostly for my own reference/use, but ha
 
 Some of the things in the .bashrc require bash4. If you are running a Mac, you likely have bash3 unless you have installed it from something like homebrew. You can either remove the lines bash complains about, or install bash4. 
 
+If you require local company specific or machine specific configuration, bash sources `
+
 ## Utilities.
 
 A checklist of tools I'd like to install on a workstation system, with Debian 12 install instructions.
