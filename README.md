@@ -20,14 +20,13 @@ A checklist of tools I'd like to install on a workstation system, with Debian 12
 - [hyperfine](https://github.com/sharkdp/hyperfine). A CLI benchmarking tool.
 - [bat](https://github.com/sharkdp/bat). A cat alternative with syntax highlighting. Note Debian calls the binary `batcat`.
 - [ripgrep-all](https://github.com/phiresky/ripgrep-all). A grep replacement that can search a lot of different file types, including PDF, doc, docx and even subtitles in movie file formats.
-
+- [uv](https://github.com/astral-sh/uv). Astral. A tool to make working with Python packages fast and sane.
 
 ```
-######## Debian 12 install 
+########## DEBIAN 12 INSTALL GUIDE ########## 
 
 sudo snap install cheat
 sudo apt install fd-find
-sudo apt install pipx
 pipx install grip
 sudo apt install delta-git
 sudo snap install dust
@@ -36,18 +35,19 @@ sudo apt install jq
 sudo apt install hyperfine
 sudo apt install bat
 
+# uv is currently not packaged in Debian, but you can use
+sudo apt install pipx
+pipx install uv
+
 # Ripgrep
 sudo apt install ripgrep pandoc poppler-utils ffmpeg
 
 # Ripgrep-all must have the binary installed manually.
-```
 
-```
-######### OSX / Homebrew Install
+######### #OSX / Homebrew Install ########## 
 
 brew install cheat
 brew install ffind
-brew install pipx
 brew install dust
 brew install grip
 brew install fzf
@@ -55,5 +55,10 @@ brew install jq
 brew install hyperfine
 brew install bat
 brew install tree
+brew install uv
+```
+```
+```
+```
 ```
 
