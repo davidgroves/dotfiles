@@ -8,7 +8,7 @@ If you require local company specific or machine specific configuration, bash so
 
 ## Utilities.
 
-A checklist of tools I'd like to install on a workstation system, with Debian 12 install instructions.
+A checklist of tools I'd like to install on a workstation system, with Debian 12 and OSX (homebrew) install instructions.
 
 - [Cheat](https://github.com/cheat/cheat). A set of cheatsheets for common unix commands.
 - [fd](https://github.com/sharkdp/fd). A find alternative.
