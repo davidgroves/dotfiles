@@ -142,7 +142,7 @@ title() {
 shopt -s checkwinsize
 
 # Automatically trim long paths in the prompt (requires Bash 4.x)
-PROMPT_DIRTRIM=2
+PROMPT_DIRTRIM=4
 
 ################
 # AUTOCOMPLETE #
