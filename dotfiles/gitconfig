@@ -22,6 +22,7 @@
 [push]
     # Use git2.0 push mode
     default = simple
+	autoSetupRemote = true
 
 [core]
     # ctime on OSX is broken so just dont do this anywhere
@@ -57,7 +58,7 @@
     # Include summaries of merged commits in newly created merge commit messages
     log = true
 [user]
-	email = git@fibrecat.org
+	email = david.groves@nominet.uk
 	name = David Groves
 [init]
 	defaultBranch = main

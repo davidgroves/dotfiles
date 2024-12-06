@@ -157,10 +157,6 @@ bind "set show-all-if-ambiguous on"
 # Makes working in multiple terminals much more sane
 shopt -s histappend
 
-# Write to history as commands are performed.
-# Slightly more disk I/O for much more sanity with multiple terminals.
-PROMPT_COMMAND='history -a'
-
 # Compact multiline commands as they go in history
 shopt -s cmdhist
 
@@ -292,6 +288,10 @@ function set_virtualenv () {
 }
 
 function _prompt_command() {
+
+  # Write history to disk on command execution. Makes multiterminals sane. 
+  history -a
+
   # If we are in Warp, ignore all that stuff and just have a simple prompt.
   if [ "x${WARP_HONOR_PS1}" = "x0" -a "x${UID}" != "x0" ]; then
       export PS1="\n"
@@ -450,7 +450,7 @@ bind -x '"\C-l": clear;'
 ### Bindings for fd + fzf
 cd_to_dir() {
     local selected_dir
-    selected_dir=$(fdfind -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+    selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
     if [[ -n "$selected_dir" ]]; then
         # Change to the selected directory
         cd "$selected_dir" || return 1
@@ -462,10 +462,11 @@ alias cdd='cd_to_dir .'
 # Bat is batcat
 alias bat="batcat"
 
-# If 
-if [ -f `which fzf` ]; then eval "$(fzf --bash)"; fi
+if [ -f `which fzf` ]; then
+    eval "$(fzf --bash)"
+fi
 
-export PATH="$PATH:/home/dwg/.modular/bin"
+export PATH="$PATH:$HOME/.modular/bin"
 
 ### Source Local Config
 source ~/.bashrc.local
