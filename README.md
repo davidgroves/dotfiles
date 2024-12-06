@@ -54,5 +54,6 @@ brew install fzf
 brew install jq
 brew install hyperfine
 brew install bat
+brew install tree
 ```
 
