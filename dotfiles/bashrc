@@ -21,6 +21,11 @@ export LS_COLORS
 # ENVIRONMENT #
 ###############
 
+# Get homebrew in path quickly if on a mac and it exists
+if [ -d /opt/homebrew/bin/ ]; then
+    export PATH="$PATH:/opt/homebrew/bin"
+fi
+
 # Use vim as my editor for things like vipw or crontab -e
 # Most stuff looks at $EDITOR but ancient stuff might look at $VISUAL
 export EDITOR=vim
@@ -441,11 +446,10 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
 # Poke Warp
-printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
+# printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash"}}\x9c'
 
 ### Make CTRL-L clear scrollback
 bind -x '"\C-l": clear;'
-
 
 ### Bindings for fd + fzf
 cd_to_dir() {
