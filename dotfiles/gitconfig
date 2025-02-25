@@ -1,3 +1,6 @@
+[column]
+    ui = auto
+
 [alias]
     # git l gives a really nice log
     l = log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -9,11 +12,11 @@
     go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
 
     # My most common typo
-	pish = push
+    pish = push
 
 [help]
     # Wait 2 seconds before executing typo corrected commands.
-	autocorrect = 20
+	  autocorrect = prompt
 
 [apply]
     # Detect whitespace errors when applying a patch
@@ -22,18 +25,20 @@
 [push]
     # Use git2.0 push mode
     default = simple
-	autoSetupRemote = true
+	  autoSetupRemote = true
+    followTags = true
 
 [core]
     # ctime on OSX is broken so just dont do this anywhere
     trustctime = false
     autocrlf = input
+    excludefiles = ~/.gitignore
 
 [color]
 [color "branch"]
-        current = yellow reverse
-        local = yellow
-        remote = green
+   current = yellow reverse
+   local = yellow
+   remote = green
 
 [color "diff"]
     meta = yellow bold
@@ -49,6 +54,9 @@
 [diff]
     # Detect copies as well as renames
     renames = copies
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
 
 [diff "bin"]
     # Use `hexdump` to diff binary files
@@ -57,15 +65,37 @@
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+
 [user]
-	email = david.groves@nominet.uk
-	name = David Groves
+    email = git@fibrecat.org
+    name = David Groves
+
 [init]
-	defaultBranch = main
+    defaultBranch = main
+
 [branch]
-	sort = -committerdate
+    sort = -committerdate
+
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
+[commit]
+    verbose = true
+
+[rerere]  
+    enabled = true
+    autoupdate = true
+
+[tag]
+    sort = version:refname
+
+[pull]
+    rebase = true
