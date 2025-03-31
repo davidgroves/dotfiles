@@ -37,6 +37,5 @@ mkdir -p ~/.config/protobuffs
 cp -r config/protobuffs/* ~/.config/protobuffs
 
 echo "Setting up neomutt"
-rm -r ~/.config/neomutt/
 mkdir -p ~/.config/neomutt/
-cp -r config/neomutt/neomuttrc ~/.config/neomutt
+cp -r config/neomutt/* ~/.config/neomutt

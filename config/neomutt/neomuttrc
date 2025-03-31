@@ -9,7 +9,7 @@ set realname = "David Groves"
 # My credentials
 set imap_user = "dave@fibrecat.org"
 set smtp_url = "smtps://dave@fibrecat.org@smtp.gmail.com:465/"
-set smtp_authenticators = 'gssapi:login'
+# set smtp_authenticators = 'gssapi:login'
 # source "gpg -dq ~/.config/mutt/rice.gpg |"
 
 # Ensure TLS is enforced
@@ -49,14 +49,14 @@ set trash = "+Trash"
 mailboxes =Important =Starred =Drafts ="Sent Mail" =Spam =Trash
 
 # Where to put the stuff
-set header_cache = "$XDG_CACHE_HOME/mutt/headers"
-set message_cachedir = "$XDG_CACHE_HOME/mutt/bodies"
-set certificate_file = "$XDG_CACHE_HOME/mutt/certificates"
+set header_cache = "$XDG_CACHE_HOME/neomutt/headers"
+set message_cachedir = "$XDG_CACHE_HOME/neomutt/bodies"
+set certificate_file = "$XDG_CACHE_HOME/neomutt/certificates"
 unset record
 
 # Etc
 set editor = "nvim"
-set signature = "$XDG_CONFIG_HOME/mutt/rice"
+set signature = "$XDG_CONFIG_HOME/neomutt/signature.private"
 
 # settings
 set pager_index_lines = 10          
@@ -97,7 +97,7 @@ set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 set send_charset = "utf-8:iso-8859-1:us-ascii"
 
 # mailcap
-set mailcap_path = "~/.config/mutt/mailcap"
+set mailcap_path = "~/.config/neomutt/mailcap"
 bind attach <return> view-mailcap
 macro attach s '<save-entry> <bol>~/Downloads/<eol>' 'save attachment'
 auto_view text/html		# automatically show html (mailcap uses lynx)
