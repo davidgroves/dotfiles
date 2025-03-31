@@ -1,0 +1,9 @@
+set from = "YOUR_EMAIL_ADDRESS"
+set realname = "THE_NAME_YOU_WANT_TO_APPEAR_ON_EMAIL"
+
+set imap_user = "GMAIL_LOGIN"
+set smtp_user = "GMAIL_LOGIN"
+
+set imap_pass = "GMAIL_APP_PASSWORD"
+set smtp_pass = "GMAIL_APP_PASSWORD"
+
