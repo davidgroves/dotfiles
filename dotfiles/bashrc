@@ -7,15 +7,14 @@
 # - https://gist.github.com/insin/1425703
 
 # If not running interactively, don't do anything and return early
-[[ $- == *i* ]] || return  
+[[ $- == *i* ]] || return
 
 ############
 # COLOR LS #
 ############
 
-LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:';
+LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'
 export LS_COLORS
-
 
 ###############
 # ENVIRONMENT #
@@ -23,7 +22,7 @@ export LS_COLORS
 
 # Get homebrew in path quickly if on a mac and it exists
 if [ -d /opt/homebrew/bin/ ]; then
-    export PATH="$PATH:/opt/homebrew/bin"
+  export PATH="$PATH:/opt/homebrew/bin"
 fi
 
 # Use vim as my editor for things like vipw or crontab -e
@@ -46,16 +45,15 @@ export PATH=$PATH:~/.local/bin
 shopt -u mailwarn
 unset MAILCHECK
 
-
 # Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
-export PYTHONIOENCODING='UTF-8';
+export PYTHONIOENCODING='UTF-8'
 
 # Prefer British English and use UTF-8.
-export LANG='en_GB.utf8';
-export LC_ALL='en_GB.utf8';
+export LANG='en_GB.utf8'
+export LC_ALL='en_GB.utf8'
 
 # Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+export MANPAGER='less -X'
 
 ###########
 # ALIASES #
@@ -68,7 +66,7 @@ alias bc="bc -l"
 alias cmount="mount | column -t"
 
 # Alias anti-typo
-alias sl=ls	# No steam locomotive please !
+alias sl=ls # No steam locomotive please !
 
 # Dont bother with less if the output is shorter than a single screen
 alias less="less -FX"
@@ -103,35 +101,36 @@ tgz() {
 
 # Generic extraction function for all kinds of archived things.
 function extract() {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)   tar xvjf $1     ;;
-            *.tar.gz)    tar xvzf $1     ;;
-            *.bz2)       bunzip2 $1      ;;
-            *.rar)       unrar x $1      ;;
-            *.gz)        gunzip $1       ;;
-            *.tar)       tar xvf $1      ;;
-            *.tbz2)      tar xvjf $1     ;;
-            *.tgz)       tar xvzf $1     ;;
-            *.zip)       unzip $1        ;;
-            *.Z)         uncompress $1   ;;
-            *.7z)        7z x $1         ;;
-            *)           echo "'$1' unknown file extension, sorry !" ;;
-        esac
-    else
-        echo "'$1' is not a valid file!"
-    fi
+  if [ -f $1 ]; then
+    case $1 in
+    *.tar.bz2) tar xvjf $1 ;;
+    *.tar.gz) tar xvzf $1 ;;
+    *.bz2) bunzip2 $1 ;;
+    *.rar) unrar x $1 ;;
+    *.gz) gunzip $1 ;;
+    *.tar) tar xvf $1 ;;
+    *.tbz2) tar xvjf $1 ;;
+    *.tgz) tar xvzf $1 ;;
+    *.zip) unzip $1 ;;
+    *.Z) uncompress $1 ;;
+    *.7z) 7z x $1 ;;
+    *) echo "'$1' unknown file extension, sorry !" ;;
+    esac
+  else
+    echo "'$1' is not a valid file!"
+  fi
 }
 
 # Sets the window terminal title to something. For example :-
 # title foo.
 # Is somewhat terminal dependant so might not work on everything.
 title() {
-    case "$TERM" in
-    *term* | rxvt)
-        echo -en  "\e]0;$*\a" ;;
-    *)  ;;
-    esac
+  case "$TERM" in
+  *term* | rxvt)
+    echo -en "\e]0;$*\a"
+    ;;
+  *) ;;
+  esac
 }
 
 ########
@@ -154,7 +153,7 @@ bind "set completion-map-case on"
 # Display matches for ambiguous patterns at first tab press
 bind "set show-all-if-ambiguous on"
 
-########### 
+###########
 # HISTORY #
 ###########
 
@@ -193,57 +192,57 @@ shopt -s cdspell
 
 # Colours
 # Regular
-txtblk="$(tput setaf 0 2>/dev/null || echo '\e[0;30m')"  # Black
-txtred="$(tput setaf 1 2>/dev/null || echo '\e[0;31m')"  # Red
-txtgrn="$(tput setaf 2 2>/dev/null || echo '\e[0;32m')"  # Green
-txtylw="$(tput setaf 3 2>/dev/null || echo '\e[0;33m')"  # Yellow
-txtblu="$(tput setaf 4 2>/dev/null || echo '\e[0;34m')"  # Blue
-txtpur="$(tput setaf 5 2>/dev/null || echo '\e[0;35m')"  # Purple
-txtcyn="$(tput setaf 6 2>/dev/null || echo '\e[0;36m')"  # Cyan
-txtwht="$(tput setaf 7 2>/dev/null || echo '\e[0;37m')"  # White
+txtblk="$(tput setaf 0 2>/dev/null || echo '\e[0;30m')" # Black
+txtred="$(tput setaf 1 2>/dev/null || echo '\e[0;31m')" # Red
+txtgrn="$(tput setaf 2 2>/dev/null || echo '\e[0;32m')" # Green
+txtylw="$(tput setaf 3 2>/dev/null || echo '\e[0;33m')" # Yellow
+txtblu="$(tput setaf 4 2>/dev/null || echo '\e[0;34m')" # Blue
+txtpur="$(tput setaf 5 2>/dev/null || echo '\e[0;35m')" # Purple
+txtcyn="$(tput setaf 6 2>/dev/null || echo '\e[0;36m')" # Cyan
+txtwht="$(tput setaf 7 2>/dev/null || echo '\e[0;37m')" # White
 
 # Bold
-bldblk="$(tput setaf 0 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;30m')"  # Black
-bldred="$(tput setaf 1 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;31m')"  # Red
-bldgrn="$(tput setaf 2 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;32m')"  # Green
-bldylw="$(tput setaf 3 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;33m')"  # Yellow
-bldblu="$(tput setaf 4 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;34m')"  # Blue
-bldpur="$(tput setaf 5 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;35m')"  # Purple
-bldcyn="$(tput setaf 6 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;36m')"  # Cyan
-bldwht="$(tput setaf 7 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;37m')"  # White
+bldblk="$(tput setaf 0 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;30m')" # Black
+bldred="$(tput setaf 1 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;31m')" # Red
+bldgrn="$(tput setaf 2 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;32m')" # Green
+bldylw="$(tput setaf 3 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;33m')" # Yellow
+bldblu="$(tput setaf 4 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;34m')" # Blue
+bldpur="$(tput setaf 5 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;35m')" # Purple
+bldcyn="$(tput setaf 6 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;36m')" # Cyan
+bldwht="$(tput setaf 7 2>/dev/null)$(tput bold 2>/dev/null || echo '\e[1;37m')" # White
 
 # Underline
-undblk="$(tput setaf 0 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;30m')"  # Black
-undred="$(tput setaf 1 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;31m')"  # Red
-undgrn="$(tput setaf 2 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;32m')"  # Green
-undylw="$(tput setaf 3 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;33m')"  # Yellow
-undblu="$(tput setaf 4 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;34m')"  # Blue
-undpur="$(tput setaf 5 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;35m')"  # Purple
-undcyn="$(tput setaf 6 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;36m')"  # Cyan
-undwht="$(tput setaf 7 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;37m')"  # White
+undblk="$(tput setaf 0 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;30m')" # Black
+undred="$(tput setaf 1 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;31m')" # Red
+undgrn="$(tput setaf 2 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;32m')" # Green
+undylw="$(tput setaf 3 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;33m')" # Yellow
+undblu="$(tput setaf 4 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;34m')" # Blue
+undpur="$(tput setaf 5 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;35m')" # Purple
+undcyn="$(tput setaf 6 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;36m')" # Cyan
+undwht="$(tput setaf 7 2>/dev/null)$(tput smul 2>/dev/null || echo '\e[4;37m')" # White
 
 # Background
-bakblk="$(tput setab 0 2>/dev/null || echo '\e[40m')"  # Black
-bakred="$(tput setab 1 2>/dev/null || echo '\e[41m')"  # Red
-bakgrn="$(tput setab 2 2>/dev/null || echo '\e[42m')"  # Green
-bakylw="$(tput setab 3 2>/dev/null || echo '\e[43m')"  # Yellow
-bakblu="$(tput setab 4 2>/dev/null || echo '\e[44m')"  # Blue
-bakpur="$(tput setab 5 2>/dev/null || echo '\e[45m')"  # Purple
-bakcyn="$(tput setab 6 2>/dev/null || echo '\e[46m')"  # Cyan
-bakwht="$(tput setab 7 2>/dev/null || echo '\e[47m')"  # White
+bakblk="$(tput setab 0 2>/dev/null || echo '\e[40m')" # Black
+bakred="$(tput setab 1 2>/dev/null || echo '\e[41m')" # Red
+bakgrn="$(tput setab 2 2>/dev/null || echo '\e[42m')" # Green
+bakylw="$(tput setab 3 2>/dev/null || echo '\e[43m')" # Yellow
+bakblu="$(tput setab 4 2>/dev/null || echo '\e[44m')" # Blue
+bakpur="$(tput setab 5 2>/dev/null || echo '\e[45m')" # Purple
+bakcyn="$(tput setab 6 2>/dev/null || echo '\e[46m')" # Cyan
+bakwht="$(tput setab 7 2>/dev/null || echo '\e[47m')" # White
 
 # Reset
-txtrst="$(tput sgr 0 2>/dev/null || echo '\e[0m')"  # Text Reset
+txtrst="$(tput sgr 0 2>/dev/null || echo '\e[0m')" # Text Reset
 
 # Detect whether the current directory is a git repository.
 function is_git_repository {
-  git branch > /dev/null 2>&1
+  git branch >/dev/null 2>&1
 }
 
 # Determine the branch/state information for this git repository.
 function set_git_branch {
   # Capture the output of the "git status" command.
-  git_status="$(git status 2> /dev/null)"
+  git_status="$(git status 2>/dev/null)"
 
   # Set color based on clean/staged/dirty.
   if [[ ${git_status} =~ "working tree clean" ]]; then
@@ -271,7 +270,7 @@ function set_git_branch {
   fi
 
   # Get the name of the branch.
-  # WARNING: On some versions of git, this needs to be 
+  # WARNING: On some versions of git, this needs to be
   # branch_pattern="^# On branch ([^${IFS}]*)"
 
   branch_pattern="^On branch ([^${IFS}]*)"
@@ -284,27 +283,27 @@ function set_git_branch {
 }
 
 # Determine active Python virtualenv details.
-function set_virtualenv () {
-  if test -z "$VIRTUAL_ENV" ; then
-      PYTHON_VIRTUALENV="None"
+function set_virtualenv() {
+  if test -z "$VIRTUAL_ENV"; then
+    PYTHON_VIRTUALENV="None"
   else
-      PYTHON_VIRTUALENV="`basename \"$VIRTUAL_ENV\"`"
+    PYTHON_VIRTUALENV="$(basename \"$VIRTUAL_ENV\")"
   fi
 }
 
 function _prompt_command() {
 
-  # Write history to disk on command execution. Makes multiterminals sane. 
+  # Write history to disk on command execution. Makes multiterminals sane.
   history -a
 
   # If we are in Warp, ignore all that stuff and just have a simple prompt.
   if [ "x${WARP_HONOR_PS1}" = "x0" -a "x${UID}" != "x0" ]; then
-      export PS1="\n"
-      return 0
+    export PS1="\n"
+    return 0
   fi
   if [ "x${WARP_HONOR_PS1}" = "x0" -a "x${UID}" = "x0" ]; then
-      export PS1="# "
-      return 0
+    export PS1="# "
+    return 0
   fi
 
   # This is for non-warp terminals
@@ -313,20 +312,20 @@ function _prompt_command() {
   local GREEN="\[$(tput setaf 2)\]"
   local BLUE="\[$(tput setaf 4)\]"
   local RESET="\[$(tput sgr0)\]"
- 
-  # If the last command ran okay (return code 0) 
+
+  # If the last command ran okay (return code 0)
   if [ $RCODE -eq 0 ]; then
     RCODEDISPLAY=${GREEN}[${RCODE}]${BLUE}
   # And if it didnt (return code > 0)
   else
     RCODEDISPLAY=${RED}[${RCODE}]${BLUE}
   fi
-  
+
   # If we are root
-  if [ $UID -eq 0 ]; then	
+  if [ $UID -eq 0 ]; then
     COLOR=$RED
   # And if we are not
-  else	
+  else
     COLOR=$GREEN
   fi
 
@@ -339,8 +338,8 @@ function _prompt_command() {
   else
     BRANCH=''
   fi
-   
-  # First line with username@host and path 
+
+  # First line with username@host and path
   export PS1="\n$COLOR[\u@\h]$BLUE \w\n"
 
   # Second line is git/venv status
@@ -349,9 +348,9 @@ function _prompt_command() {
   fi
   if [ x$PYTHON_VIRTUALENV != "x" ]; then
     export PS1+="\[$txtcyn\][Venv: \[$txtgrn\]${PYTHON_VIRTUALENV} \[$txtcyn\]]\n"
-  fi 
+  fi
 
-  # Third line is the return code of the previous command and the time. 
+  # Third line is the return code of the previous command and the time.
   export PS1+="${RCODEDISPLAY} \t \\] $(tput sgr0)\n"
 
   # Final line is the prompt
@@ -372,11 +371,11 @@ _prompt_command
 ##################
 
 # Source the default bash completions.
-source /etc/profile.d/bash_completion.sh 
+source /etc/profile.d/bash_completion.sh
 
 # Source our custom bash completions
 for FILE in ~/.bash_completion.d/*; do
-    source $FILE
+  source $FILE
 done
 
 ##############
@@ -391,12 +390,12 @@ alias ls='ls --color=auto'
 SSH_ENV="$HOME/.ssh/agent-environment"
 
 function start_agent {
-    echo "Initialising new SSH agent..."
-    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    echo succeeded
-    chmod 600 "${SSH_ENV}"
-    . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
+  echo "Initialising new SSH agent..."
+  /usr/bin/ssh-agent | sed 's/^echo/#echo/' >"${SSH_ENV}"
+  echo succeeded
+  chmod 600 "${SSH_ENV}"
+  . "${SSH_ENV}" >/dev/null
+  /usr/bin/ssh-add
 }
 
 # Source SSH settings, if applicable
@@ -414,7 +413,7 @@ function start_agent {
 
 # Source rust environment if it exists
 if [ -f ${HOME}/.cargo/env ]; then
-    . "$HOME/.cargo/env"
+  . "$HOME/.cargo/env"
 fi
 
 # bun
@@ -423,17 +422,17 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 # texlive
 if [ -d /usr/local/texlive/ ]; then
-    if [ ! -d /usr/local/texlive/2024/bin/x86_64-linux/ ]; then
-        echo "ERROR: Found /usr/local/texlive but not /usr/local/texlive/2024/bin/x86_64-linux/"
-        echo "Fix PATH in dotfile for new texlive version ?"
-    else
-        export PATH=/usr/local/texlive/2024/bin/x86_64-linux/:$PATH
-    fi
+  if [ ! -d /usr/local/texlive/2024/bin/x86_64-linux/ ]; then
+    echo "ERROR: Found /usr/local/texlive but not /usr/local/texlive/2024/bin/x86_64-linux/"
+    echo "Fix PATH in dotfile for new texlive version ?"
+  else
+    export PATH=/usr/local/texlive/2024/bin/x86_64-linux/:$PATH
+  fi
 fi
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Docker experimental features.
 export DOCKER_CLI_EXPERIMENTAL=enabled
@@ -453,12 +452,12 @@ bind -x '"\C-l": clear;'
 
 ### Bindings for fd + fzf
 cd_to_dir() {
-    local selected_dir
-    selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
-    if [[ -n "$selected_dir" ]]; then
-        # Change to the selected directory
-        cd "$selected_dir" || return 1
-    fi
+  local selected_dir
+  selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+  if [[ -n "$selected_dir" ]]; then
+    # Change to the selected directory
+    cd "$selected_dir" || return 1
+  fi
 }
 
 alias cdd='cd_to_dir .'
@@ -466,11 +465,22 @@ alias cdd='cd_to_dir .'
 # Bat is batcat
 alias bat="batcat"
 
-if [ -f `which fzf` ]; then
-    eval "$(fzf --bash)"
+if [ -f $(which fzf) ]; then
+  eval "$(fzf --bash)"
 fi
 
 export PATH="$PATH:$HOME/.modular/bin"
+
+# Check if neomutt is installed, and if so alias mutt to it.
+if command -v neomutt &>/dev/null; then
+  alias mutt=neomutt
+fi
+
+# Check if nvim is instaled, and if so alias vi and vim to it.
+if command -v nvim &>/dev/null; then
+  alias vi=nvim
+  alias vim=nvim
+fi
 
 ### Source Local Config
 source ~/.bashrc.local
