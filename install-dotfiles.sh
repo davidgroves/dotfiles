@@ -8,15 +8,21 @@ echo Creating backup directory at $BACKDIR
 mkdir -p $BACKDIR
 
 # backup dotfiles
-for FILE in `cd $SOURCEDIR; echo *`; do
-    echo "Backing up ~/.$FILE to $BACKDIR/$FILE"
-    mv ~/.$FILE $BACKDIR/$FILE
+for FILE in $(
+  cd $SOURCEDIR
+  echo *
+); do
+  echo "Backing up ~/.$FILE to $BACKDIR/$FILE"
+  mv ~/.$FILE $BACKDIR/$FILE
 done
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for FILE in `cd $SOURCEDIR; echo *`; do
-    echo "Creating symlink to $SOURCEDIR/.$FILE in $HOME"
-    ln -sf $SOURCEDIR/$FILE ~/.$FILE
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
+for FILE in $(
+  cd $SOURCEDIR
+  echo *
+); do
+  echo "Creating symlink to $SOURCEDIR/.$FILE in $HOME"
+  ln -sf $SOURCEDIR/$FILE ~/.$FILE
 done
 
 # create a file for neovim
@@ -30,3 +36,7 @@ rm -r ~/.config/protobuffs
 mkdir -p ~/.config/protobuffs
 cp -r config/protobuffs/* ~/.config/protobuffs
 
+echo "Setting up neomutt"
+rm -r ~/.config/neomutt/
+mkdir -p ~/.config/neomutt/
+cp -r config/neomutt/neomuttrc ~/.config/neomutt
