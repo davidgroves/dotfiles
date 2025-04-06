@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Many things sourced from these places
 # - https://github.com/mrzool/bash-sensible/blob/master/sensible.bash
 # - http://maketecheasier.com/8-useful-and-interesting-bash-prompts/2009/09/04
@@ -22,7 +24,7 @@ export LS_COLORS
 
 # Get homebrew in path quickly if on a mac and it exists
 if [ -d /opt/homebrew/bin/ ]; then
-  export PATH="$PATH:/opt/homebrew/bin"
+  export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 # Use vim as my editor for things like vipw or crontab -e
@@ -77,6 +79,11 @@ alias gitd="git diff"
 alias gitco="git checkout"
 alias gitc="git commit -v"
 alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
+
 alias ll="ls -laG"
 
 # Preserve environment when using sudo
@@ -91,7 +98,7 @@ alias ccat='pygmentize -g -O linenos=1'
 
 # Akamai curl with all the debug options specific to Akamai turned on
 akacurl() {
-  curl -I -H "Pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-nonces, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no" $*
+  curl -I -H "Pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key, akamai-x-get-extracted-values, akamai-x-get-nonces, akamai-x-get-ssl-client-session-id, akamai-x-get-true-cache-key, akamai-x-serial-no" "$*"
 }
 
 # Lets you create tarballs of things with tgz $DIRNAME
@@ -103,17 +110,17 @@ tgz() {
 function extract() {
   if [ -f $1 ]; then
     case $1 in
-    *.tar.bz2) tar xvjf $1 ;;
-    *.tar.gz) tar xvzf $1 ;;
-    *.bz2) bunzip2 $1 ;;
-    *.rar) unrar x $1 ;;
-    *.gz) gunzip $1 ;;
-    *.tar) tar xvf $1 ;;
-    *.tbz2) tar xvjf $1 ;;
-    *.tgz) tar xvzf $1 ;;
-    *.zip) unzip $1 ;;
-    *.Z) uncompress $1 ;;
-    *.7z) 7z x $1 ;;
+    *.tar.bz2) tar xvjf "$1" ;;
+    *.tar.gz) tar xvzf "$1" ;;
+    *.bz2) bunzip2 "$1" ;;
+    *.rar) unrar x "$1" ;;
+    *.gz) gunzip "$1"1 ;;
+    *.tar) tar xvf "$1" ;;
+    *.tbz2) tar xvjf "$1" ;;
+    *.tgz) tar xvzf "$1" ;;
+    *.zip) unzip "$1" ;;
+    *.Z) uncompress "$1" ;;
+    *.7z) 7z x "$1" ;;
     *) echo "'$1' unknown file extension, sorry !" ;;
     esac
   else
@@ -287,46 +294,41 @@ function set_virtualenv() {
   if test -z "$VIRTUAL_ENV"; then
     PYTHON_VIRTUALENV="None"
   else
-    PYTHON_VIRTUALENV="$(basename \"$VIRTUAL_ENV\")"
+    PYTHON_VIRTUALENV=$(basename "$VIRTUAL_ENV")
   fi
 }
 
 function _prompt_command() {
+  # Get rcode first to prevent it from being overwritten
+  RCODE=$?
 
   # Write history to disk on command execution. Makes multiterminals sane.
   history -a
 
   # If we are in Warp, ignore all that stuff and just have a simple prompt.
-  if [ "x${WARP_HONOR_PS1}" = "x0" -a "x${UID}" != "x0" ]; then
+  if [ "${WARP_HONOR_PS1}" = "0" ] && [ "${UID}" != "0" ]; then
     export PS1="\n"
     return 0
   fi
-  if [ "x${WARP_HONOR_PS1}" = "x0" -a "x${UID}" = "x0" ]; then
+  if [ "${WARP_HONOR_PS1}" = "0" ] && [ "${UID}" = "0" ]; then
     export PS1="# "
     return 0
   fi
 
-  # This is for non-warp terminals
-  local RCODE=$?
-  local RED="\[$(tput setaf 1)\]"
-  local GREEN="\[$(tput setaf 2)\]"
-  local BLUE="\[$(tput setaf 4)\]"
-  local RESET="\[$(tput sgr0)\]"
-
   # If the last command ran okay (return code 0)
-  if [ $RCODE -eq 0 ]; then
-    RCODEDISPLAY=${GREEN}[${RCODE}]${BLUE}
+  if [ "${RCODE}" -eq 0 ]; then
+    RCODEDISPLAY="\[$txtgrn\][${RCODE}]\[$txtrst\]"
   # And if it didnt (return code > 0)
   else
-    RCODEDISPLAY=${RED}[${RCODE}]${BLUE}
+    RCODEDISPLAY="\[$txtred\][${RCODE}]\[$txtrst\]"
   fi
 
   # If we are root
   if [ $UID -eq 0 ]; then
-    COLOR=$RED
+    COLOR="\[$txtred\]"
   # And if we are not
   else
-    COLOR=$GREEN
+    COLOR="\[$txtgrn\]"
   fi
 
   # Set the PYTHON_VIRTUALENV variable.
@@ -340,27 +342,29 @@ function _prompt_command() {
   fi
 
   # First line with username@host and path
-  export PS1="\n$COLOR[\u@\h]$BLUE \w\n"
+  PS1="\n${COLOR}[\u@\h]${BLUE} \w\n"
 
   # Second line is git/venv status
-  if [ x$BRANCH != "x" ]; then
-    export PS1+="\[$txtcyn\][Git: $BRANCH\[$txtcyn\]]\[$txtrst\]"
+  if [ x"$BRANCH" != "x" ]; then
+    PS1+="\[$txtcyn\][Git: $BRANCH\[$txtcyn\]]\[$txtrst\]"
   fi
-  if [ x$PYTHON_VIRTUALENV != "x" ]; then
-    export PS1+="\[$txtcyn\][Venv: \[$txtgrn\]${PYTHON_VIRTUALENV} \[$txtcyn\]]\n"
+  if [ x"$PYTHON_VIRTUALENV" != "x" ]; then
+    PS1+="\[$txtcyn\][Venv: \[$txtgrn\]${PYTHON_VIRTUALENV} \[$txtcyn\]]\n"
   fi
 
   # Third line is the return code of the previous command and the time.
-  export PS1+="${RCODEDISPLAY} \t \\] $(tput sgr0)\n"
+  PS1+="${RCODEDISPLAY} \t \\] $(tput sgr0)\n"
 
   # Final line is the prompt
   if [ $UID -ne 0 ]; then
-    export PS1+="$ "
+    PS1+="\[$txtgrn\]$ \[$txtrst\]"
   else
-    export PS1+="# "
+    PS1+="\[$txtred\]$ \[$txtrst\]"
   fi
 }
 
+# Export prompt stuff
+export PS1
 export PROMPT_COMMAND=_prompt_command
 
 # Run this or the first displayed prompt wont look correct.
@@ -375,7 +379,7 @@ source /etc/profile.d/bash_completion.sh
 
 # Source our custom bash completions
 for FILE in ~/.bash_completion.d/*; do
-  source $FILE
+  source "$FILE"
 done
 
 ##############
@@ -412,7 +416,7 @@ function start_agent {
 # fi
 
 # Source rust environment if it exists
-if [ -f ${HOME}/.cargo/env ]; then
+if [ -f "${HOME}/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
@@ -451,9 +455,21 @@ export PATH=$BUN_INSTALL/bin:$PATH
 bind -x '"\C-l": clear;'
 
 ### Bindings for fd + fzf
+
+if command -v fdfind &>/dev/null; then
+  export FDFIND="fdfind"
+else
+  export FDFIND="fd"
+fi
+
 cd_to_dir() {
   local selected_dir
-  selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+  if [ "$FDFIND" == 'fdfind' ]; then
+    selected_dir=$(fdfind -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+  fi
+  if [ "$FDFIND" == 'fd' ]; then
+    selected_dir=$(fd -t d . "$1" | fzf +m --height 50% --preview 'tree -C {}')
+  fi
   if [[ -n "$selected_dir" ]]; then
     # Change to the selected directory
     cd "$selected_dir" || return 1
@@ -465,7 +481,7 @@ alias cdd='cd_to_dir .'
 # Bat is batcat
 alias bat="batcat"
 
-if [ -f $(which fzf) ]; then
+if [ -f "$(which fzf)" ]; then
   eval "$(fzf --bash)"
 fi
 
