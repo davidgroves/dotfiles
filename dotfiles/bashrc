@@ -342,7 +342,7 @@ function _prompt_command() {
   fi
 
   # First line with username@host and path
-  PS1="\n${COLOR}[\u@\h]${BLUE} \w\n"
+  PS1="\n${COLOR}[\u@\h] \[$txtblu\]\w \[$txtrst\]\n"
 
   # Second line is git/venv status
   if [ x"$BRANCH" != "x" ]; then
