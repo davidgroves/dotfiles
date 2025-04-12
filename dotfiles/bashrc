@@ -508,5 +508,24 @@ if ! command -v cursor &>/dev/null && [ -x /opt/cursor.appimage ]; then
   alias cursor=/opt/cursor.appimage
 fi
 
+# Toolcheck. Checks if the tools needed are installed.
+
+function toolcheck {
+  local TOOLS="cheat fdfind grip delta dust fzf jq hyperfine bat uv rg pandoc"
+  local NOTFOUND=0
+  for tool in $TOOLS; do
+    if ! command -v $tool &>/dev/null; then
+      echo "$tool not installed."
+      NOTFOUND=1
+    fi
+  done
+  if [ $NOTFOUND == 0 ]; then
+    echo "All tools installed."
+    return 0
+  else
+    return 1
+  fi
+}
+
 ### Source Local Config
 source ~/.bashrc.local

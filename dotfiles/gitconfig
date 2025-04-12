@@ -33,6 +33,7 @@
     trustctime = false
     autocrlf = input
     excludefiles = ~/.gitignore
+    pager = delta
 
 [color]
 [color "branch"]
@@ -65,6 +66,7 @@
 [merge]
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    conflictstyle = zdiff3
 
 [user]
     email = git@fibrecat.org
@@ -99,3 +101,11 @@
 
 [pull]
     rebase = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+
