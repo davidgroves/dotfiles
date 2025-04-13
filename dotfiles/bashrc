@@ -508,7 +508,7 @@ fi
 # and if so alias realls to ls
 if command -v lsd &>/dev/null; then
   alias ls=lsd
-  alias tree=lsd --tree
+  alias tree="lsd --tree"
   alias realls=ls
   alias realtree=tree
 fi
