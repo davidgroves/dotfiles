@@ -504,6 +504,17 @@ if command -v nvim &>/dev/null; then
   alias vim=nvim
 fi
 
+# Check if lsd is installed, and if so alias ls to it.
+# and if so alias realls to ls
+if command -v lsd &>/dev/null; then
+  alias ls=lsd
+  alias realls=lsd
+fi
+
+if command -v batcat &>/dev/null; then
+  alias bat=batcat
+fi
+
 if ! command -v cursor &>/dev/null && [ -x /opt/cursor.appimage ]; then
   alias cursor=/opt/cursor.appimage
 fi
@@ -511,7 +522,7 @@ fi
 # Toolcheck. Checks if the tools needed are installed.
 
 function toolcheck {
-  local TOOLS="cheat fdfind grip delta dust fzf jq hyperfine bat uv rg pandoc"
+  local TOOLS="cheat fdfind grip delta dust fzf jq hyperfine bat uv rg pandoc lsd batcat"
   local NOTFOUND=0
   for tool in $TOOLS; do
     if ! command -v $tool &>/dev/null; then
