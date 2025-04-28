@@ -1,1 +1,1 @@
-/home/dwg/CODE/dotfiles/dotfiles/bash_completion.d
+/home/dwg/dotfiles/dotfiles/bash_completion.d
