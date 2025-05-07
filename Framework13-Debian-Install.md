@@ -144,6 +144,10 @@ apt install google-chrome-unstable
 
 1. Confirm you get WAYLAND from `echo $XDG_SESSION_TYPE`
 
+# Disable password SSH authenticaton.
+
+1. Edit `/etc/ssh/sshd_config` and uncomment and set `PasswordAuthentication no`
+
 # Reboot
 
 1. Reboot so all groups and other changes are fully in effect.
