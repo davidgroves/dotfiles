@@ -7,14 +7,14 @@ You will need to be able to attach a Wired Ethernet Connection and a USB Keyboar
 I used a [Bekin USB-C Hub with Ethernet](https://www.belkin.com/uk/p/usb-c-4-in--core-hub/AVC005btBK.html), but using 
 the builtin USB-A and Ethernet modules should work fine too.
 
-# Hardware
+## Hardware
 
 Use fn + esc to turn off fn lock. F keys work as normal, you need Fn to use volume controls etc ...
 This presists across reboots.
 
 Use fn + space to turn on the keyboard backlight if required.
 
-# Installing Debian - (Stable)
+## Installing Debian - (Stable)
 
 - Use a USB keyboard, as the keyboard doesn't work with Debian Stable.
 - Use a Wired Network Connection, as the Wifi doesn't work with Debian Stable.
@@ -22,7 +22,7 @@ Use fn + space to turn on the keyboard backlight if required.
 
 - Make sure the root filesystem is installed using BTRFS, to support snapshots.
 
-# Upgrading to Unstable
+## Upgrading to Unstable
 
 - Change `/etc/apt/sources.list` from `bookworm` to `sid`
 - Run `apt-get update` and then `apt-get dist-upgrade`
@@ -31,21 +31,21 @@ Use fn + space to turn on the keyboard backlight if required.
 - Install the `firmware-mediatek package`, to get wifi access.
 - Add your user to the sudo group with `vi /etc/group`
 
-# Reboot
+## Reboot
 
 - Reboot so your wifi and keyboard work.
 
-# Fix GRUB so you can read boot messages.
+## Fix GRUB so you can read boot messages.
 
 - Edit `/etc/default/grub` and uncomment `GRUB_GFXMODE`
 - Run `sudo update-grub`
 
-# Fix Console so its not tiny.
+## Fix Console so its not tiny.
 
 - Run `sudo dpkg-reconfigure console-setup`.
 - Select `UTF-8`, `Latin 1`, `DejaVu` and `24x43`.
 
-# Setup GNOME Settings
+## Setup GNOME Settings
 
 In `Settings`.
 
@@ -59,11 +59,11 @@ In `Settings`.
 - In Keyboard, Set Compose Key -> Right Alt, and Screenshot -> Interactive to Shift + Super + S.
 - In System, Set Time Format to 24 hours and CLock to display Seconds.
 
-# Setup GNOME Tweaks.
+## Setup GNOME Tweaks.
 
 - In `tweaks -> windows`, Turn on Minimize and Maximize Window Widgets.
 
-# Installing software I use.
+## Installing software I use.
 
 - Install the following packages.
 
@@ -72,8 +72,8 @@ apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt ru
 ```
 
 - Use [Microsoft's Instructions](https://code.visualstudio.com/docs/setup/linux) to get vscode.
-- Use `dpkg -i ~/Downloads/code...` to install.
-- Accept adding the apt repo.
+  - Use `dpkg -i ~/Downloads/code...` to install.
+  - Accept adding the apt repo.
 
 - Use `curl -LsSf https://astral.sh/uv/install.sh | sh` to install uv.
 
@@ -95,27 +95,26 @@ apt install google-chrome-unstable
 ```
 
 - Install [Docker](https://www.docker.com/) using [The Docker Install Instructions](https://docs.docker.com/engine/install/debian/#install-using-the-repository)
-
 - Install [Ansible Vault Keyring](https://github.com/davidgroves/ansible_vault_keyring) with `uv tool install ansible-vault-keyring`
 
 - Install [Vagrant](https://developer.hashicorp.com/vagrant) with the [Hashicorp Install Instructions](https://developer.hashicorp.com/vagrant/install)
-- You may need to change the Debian codename in `/etc/apt/sources.list.d/hashicorp.list`, as it won't have sid. Go to current stable release codename.
+  - You may need to change the Debian codename in `/etc/apt/sources.list.d/hashicorp.list`, as it won't have sid. Go to current stable release codename.
 
-# Setup Default Apps
+## Setup Default Apps
 
 - Search for `apps` and pick `default apps`.
 - Set `web` to be `google chrome unstable`
 
-# Add groups for apps
+## Add groups for apps
 
 - Edit /etc/groups and add yourself to libvirt, libvirt-qemu, docker and wireshark
 
-# Setup Shortcuts.
+## Setup Shortcuts.
 
 - In `Settings` -> `Keyboard`, select `Keyboard Shortcuts`.
 - Set a `Custom Shortcut`. CTRL-ALT-T for the binary `kgx`.
 
-# Fix App Launcher
+## Fix App Launcher
  
 - Remove all apps from the dash, except File Manager.
 - Pin the Console.
@@ -125,30 +124,30 @@ apt install google-chrome-unstable
 - Pin Discord.
 - Pin Mattermost.
 
-# Install my SSH keys.
+## Install my SSH keys.
 
 - Retrieve keys from secure vault and install in ~/.ssh
 - Make sure the keys are chmod 600.
 
-# Install my GPG keys.
+## Install my GPG keys.
 
 - Retrieve keys from secure vault and install in ~/.gnupg
 - Make sure the keys are chmod 600.
 
-# Headshot.
+## Headshot.
 
 - Download a headshot and put it in ~/Pictures/
 - Go to `settings` -> `user`, and use the headshot as the user account image.
 
-# Confirm you are running Wayland.
+## Confirm you are running Wayland.
 
 - Confirm you get WAYLAND from `echo $XDG_SESSION_TYPE`
 
-# Disable password SSH authenticaton.
+## Disable password SSH authenticaton.
 
 - Edit `/etc/ssh/sshd_config` and uncomment and set `PasswordAuthentication no`
 
-# Reboot
+## Reboot
 
 - Reboot so all groups and other changes are fully in effect.
 
