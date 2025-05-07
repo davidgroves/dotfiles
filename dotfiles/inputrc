@@ -13,3 +13,12 @@ set mark-symlinked-directories on
 # Don't need tab twice to show completions, just show on one press
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
+
+# Color code tab completions (but check for bash)
+$if Bash
+  set skip-completed-text on
+  set colored-stats on
+$endif
+
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
