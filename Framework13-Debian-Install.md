@@ -1,0 +1,150 @@
+# What is this.
+
+These are the install steps I use for a new [Framework 13](https://frame.work/gb/en/laptop13).
+Relevant hardware, my model has the 120hz high resolution screen.
+
+You will need to be able to attach a Wired Ethernet Connection and a USB Keyboard during the install.
+I used a [Bekin USB-C Hub with Ethernet](https://www.belkin.com/uk/p/usb-c-4-in-1-core-hub/AVC005btBK.html), but using 
+the builtin USB-A and Ethernet modules should work fine too.
+
+# Hardware
+
+Use fn + esc to turn off fn lock. F keys work as normal, you need Fn to use volume controls etc ...
+This presists across reboots.
+
+Use fn + space to turn on the keyboard backlight if required.
+
+# Installing Debian 12 (Stable)
+
+1. Use a USB keyboard, as the keyboard doesn't work with Debian Stable.
+1. Use a Wired Network Connection, as the Wifi doesn't work with Debian Stable.
+1. Install [Debian 12 Stable](https://www.debian.org/download) from USB Key.
+
+- Make sure the root filesystem is installed using BTRFS, to support snapshots.
+
+# Upgrading to Unstable
+
+1. Change `/etc/apt/sources.list` from `bookworm` to `sid`
+1. Run `apt-get update` and then `apt-get dist-upgrade`
+1. Run `apt modernize`
+1. Run `apt autoremove`
+1. Install the `firmware-mediatek package`, to get wifi access.
+1. Add your user to the sudo group with `vi /etc/group`
+
+# Reboot
+#
+1. Reboot so your wifi and keyboard work.
+
+# Fix GRUB so you can read boot messages.
+
+1. Edit `/etc/default/grub` and uncomment `GRUB_GFXMODE`
+1. Run `sudo update-grub`
+
+# Fix Console so its not tiny.
+
+1. Run `sudo dpkg-reconfigure console-setup`.
+1. Select `UTF-8`, `Latin 1`, `DejaVu` and `24x43`.
+
+# Setup GNOME Settings
+
+In `Settings`.
+
+1. In Trackpad, reverse trackpad scroll direction.
+1. In Wi-Fi, setup wifi network.
+1. In Displays, set Scale to 175% and Refresh Rate to 120hz.
+1. In Power, set Show Battery Percentage.
+1. In Multitasking, disable Hot Corners and Active Screen Edges.
+1. In Multitasking, set Fixed Workspaces, and 8 Workspaces, and Workspaces on All Displays.
+1. In Appreance, Set Dark Mode.
+1. In Keyboard, Set Compose Key -> Right Alt, and Screenshot -> Interactive to Shift + Super + S.
+1. In System, Set Time Format to 24 hours and CLock to display Seconds.
+
+# Setup GNOME Tweaks.
+
+1. In `tweaks -> windows`, Turn on Minimize and Maximize Window Widgets.
+
+# Installing software I use.
+
+1. Install the following packages.
+
+```
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client
+```
+
+1. Use [Microsoft's Instructions](https://code.visualstudio.com/docs/setup/linux) to get vscode.
+- Use `dpkg -i ~/Downloads/code...` to install.
+- Accept adding the apt repo.
+
+1. Use `curl -LsSf https://astral.sh/uv/install.sh | sh` to install uv.
+
+1. Use the `Software` to install `Gnome Console`.
+
+1. Use `snap` to install software.
+
+`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux`.
+`sudo snap install opentofu --classic`
+
+1. Install [Google Chrome](https://www.google.com/chrome/) using :-
+
+```
+sudo -i
+curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor > /usr/share/keyrings/google-chrome.gpg
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+apt update
+apt install google-chrome-unstable
+```
+
+1. Install [Docker](https://www.docker.com/) using [The Docker Install Instructions](https://docs.docker.com/engine/install/debian/#install-using-the-repository)
+
+1. Install [Ansible Vault Keyring](https://github.com/davidgroves/ansible_vault_keyring) with `uv tool install ansible-vault-keyring`
+
+1. Install [Vagrant](https://developer.hashicorp.com/vagrant) with the [Hashicorp Install Instructions](https://developer.hashicorp.com/vagrant/install)
+- You may need to change the Debian codename in `/etc/apt/sources.list.d/hashicorp.list`, as it won't have sid. Go to current stable release codename.
+
+# Setup Default Apps
+
+1. Search for `apps` and pick `default apps`.
+1. Set `web` to be `google chrome unstable`
+
+# Add groups for apps
+
+1. Edit /etc/groups and add yourself to libvirt, libvirt-qemu, docker and wireshark
+
+# Setup Shortcuts.
+
+1. In `Settings` -> `Keyboard`, select `Keyboard Shortcuts`.
+1. Set a `Custom Shortcut`. CTRL-ALT-T for the binary `kgx`.
+
+# Fix App Launcher
+ 
+1. Remove all apps from the dash, except File Manager.
+1. Pin the Console.
+1. Pin Google Chrome.
+1. Pin Ferdium.
+1. Pin Slack.
+1. Pin Discord.
+1. Pin Mattermost.
+
+# Install my SSH keys.
+
+1. Retrieve keys from secure vault and install in ~/.ssh
+1. Make sure the keys are chmod 600.
+
+# Install my GPG keys.
+
+1. Retrieve keys from secure vault and install in ~/.gnupg
+1. Make sure the keys are chmod 600.
+
+# Headshot.
+
+1. Download a headshot and put it in ~/Pictures/
+1. Go to `settings` -> `user`, and use the headshot as the user account image.
+
+# Confirm you are running Wayland.
+
+1. Confirm you get WAYLAND from `echo $XDG_SESSION_TYPE`
+
+# Reboot
+
+1. Reboot so all groups and other changes are fully in effect.
+
