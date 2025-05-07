@@ -55,9 +55,9 @@ In `Settings`.
 - In Power, set Show Battery Percentage.
 - In Multitasking, disable Hot Corners and Active Screen Edges.
 - In Multitasking, set Fixed Workspaces, and 8 Workspaces, and Workspaces on All Displays.
-- In Appreance, Set Dark Mode.
+- In Apperance, Set Dark Mode.
 - In Keyboard, Set Compose Key -> Right Alt, and Screenshot -> Interactive to Shift + Super + S.
-- In System, Set Time Format to 24 hours and CLock to display Seconds.
+- In System, Set Time Format to 24 hours and Clock to display Seconds.
 
 ## Setup GNOME Tweaks.
 
@@ -68,7 +68,7 @@ In `Settings`.
 - Install the following packages.
 
 ```
-apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh
 ```
 
 - Use [Microsoft's Instructions](https://code.visualstudio.com/docs/setup/linux) to get vscode.
@@ -81,7 +81,7 @@ apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt ru
 
 - Use `snap` to install software.
 
-`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux`.
+`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta `.
 `sudo snap install opentofu --classic`
 
 - Install [Google Chrome](https://www.google.com/chrome/) using :-
@@ -99,6 +99,9 @@ apt install google-chrome-unstable
 
 - Install [Vagrant](https://developer.hashicorp.com/vagrant) with the [Hashicorp Install Instructions](https://developer.hashicorp.com/vagrant/install)
   - You may need to change the Debian codename in `/etc/apt/sources.list.d/hashicorp.list`, as it won't have sid. Go to current stable release codename.
+
+- Install ulauncher by getting a [release](https://github.com/Ulauncher/Ulauncher/releases/), .deb file and doing `sudo apt install ~/Downloads/ulauncher_5.15.7_all.deb` to install it, correcting the version.
+  - Also follow the [Wayland Instructions](https://github.com/Ulauncher/Ulauncher/wiki/Hotkey-In-Wayland)
 
 ## Setup Default Apps
 
