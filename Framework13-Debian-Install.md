@@ -1,7 +1,7 @@
 # What is this.
 
-These are the install steps I use for a new [Framework -](https://frame.work/gb/en/laptop13).
-Relevant hardware, my model has the -0hz high resolution screen.
+These are the install steps I use for a new [Framework 13](https://frame.work/gb/en/laptop13).
+Relevant hardware, my model has the 120hz high resolution screen.
 
 You will need to be able to attach a Wired Ethernet Connection and a USB Keyboard during the install.
 I used a [Bekin USB-C Hub with Ethernet](https://www.belkin.com/uk/p/usb-c-4-in--core-hub/AVC005btBK.html), but using 
