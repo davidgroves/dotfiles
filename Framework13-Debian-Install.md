@@ -40,7 +40,7 @@ Use fn + space to turn on the keyboard backlight if required.
 - Edit `/etc/default/grub` and uncomment `GRUB_GFXMODE`
 - Run `sudo update-grub`
 
-## Fix Console so its not tiny.
+## Fix Console so it is readable.
 
 - Run `sudo dpkg-reconfigure console-setup`.
 - Select `UTF-8`, `Latin 1`, `DejaVu` and `24x43`.
