@@ -10,7 +10,7 @@ the builtin USB-A and Ethernet modules should work fine too.
 ## Hardware
 
 Use fn + esc to turn off fn lock. F keys work as normal, you need Fn to use volume controls etc ...
-This presists across reboots.
+This persists across reboots.
 
 Use fn + space to turn on the keyboard backlight if required.
 
@@ -103,6 +103,11 @@ apt install google-chrome-unstable
 - Install ulauncher by getting a [release](https://github.com/Ulauncher/Ulauncher/releases/), .deb file and doing `sudo apt install ~/Downloads/ulauncher_5.15.7_all.deb` to install it, correcting the version.
   - Also follow the [Wayland Instructions](https://github.com/Ulauncher/Ulauncher/wiki/Hotkey-In-Wayland)
 
+- Install the systemd TUI.
+
+```
+cargo install systemctl-tui --locked
+```
 ## Setup Default Apps
 
 - Search for `apps` and pick `default apps`.
