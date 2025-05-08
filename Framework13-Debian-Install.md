@@ -68,7 +68,7 @@ In `Settings`.
 - Install the following packages.
 
 ```
-apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate
 ```
 
 - Use [Microsoft's Instructions](https://code.visualstudio.com/docs/setup/linux) to get vscode.
@@ -81,7 +81,7 @@ apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt ru
 
 - Use `snap` to install software.
 
-`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta `.
+`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend`.
 `sudo snap install opentofu --classic`
 
 - Install [Google Chrome](https://www.google.com/chrome/) using :-
@@ -108,6 +108,20 @@ apt install google-chrome-unstable
 ```
 cargo install systemctl-tui --locked
 ```
+
+## Add Gnome Extensions
+
+```
+gext install tophat@fflewddur.github.io
+gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
+
+
+```
+
+## Setup ollama mistral as local LLM.
+
+- `ollama pull mistral`
+
 ## Setup Default Apps
 
 - Search for `apps` and pick `default apps`.
@@ -154,6 +168,10 @@ cargo install systemctl-tui --locked
 ## Disable password SSH authenticaton.
 
 - Edit `/etc/ssh/sshd_config` and uncomment and set `PasswordAuthentication no`
+
+## Initalise the locate database.
+
+- `sudo updatedb`
 
 ## Reboot
 

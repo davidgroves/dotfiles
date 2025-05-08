@@ -540,5 +540,13 @@ function toolcheck {
   fi
 }
 
+### Add the go bin directory if it exists, so things installed with go install work
+
+if [ -d "~/go/bin/" ]; then
+  PATH=${PATH}:~/go/bin
+fi
+
 ### Source Local Config
-source ~/.bashrc.local
+if [ -f "~/.bashrc.local" ]; then
+  source ~/.bashrc.local
+fi
