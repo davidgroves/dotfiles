@@ -19,8 +19,7 @@ Use fn + space to turn on the keyboard backlight if required.
 - Use a USB keyboard, as the keyboard doesn't work with Debian Stable.
 - Use a Wired Network Connection, as the Wifi doesn't work with Debian Stable.
 - Install [Debian 12 Stable](https://www.debian.org/download) from USB Key.
-
-- Make sure the root filesystem is installed using BTRFS, to support snapshots.
+  - Make sure the root filesystem is installed using BTRFS, to support snapshots.
 
 ## Upgrading to Unstable
 
@@ -180,6 +179,10 @@ gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
 ## Init the locate database.
 
 - `sudo updatedb`
+
+## Setup filesystem snapshotting
+
+- `snapper -c root create-config /`
 
 ## Reboot
 
