@@ -542,11 +542,17 @@ function toolcheck {
 
 ### Add the go bin directory if it exists, so things installed with go install work
 
-if [ -d "~/go/bin/" ]; then
+if [ -d ~/go/bin/ ]; then
   PATH=${PATH}:~/go/bin
 fi
 
+### Add a alias for lazydocker to lzd, but only if lazydocker is installed in the path
+
+if command -v lazydocker &>/dev/null; then
+  alias lzd=lazydocker
+fi
+
 ### Source Local Config
-if [ -f "~/.bashrc.local" ]; then
+if [ -f ~/.bashrc.local ]; then
   source ~/.bashrc.local
 fi

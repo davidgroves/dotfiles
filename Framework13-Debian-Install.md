@@ -68,7 +68,7 @@ In `Settings`.
 - Install the following packages.
 
 ```
-apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper
 ```
 
 - Use [Microsoft's Instructions](https://code.visualstudio.com/docs/setup/linux) to get vscode.
@@ -81,7 +81,7 @@ apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt ru
 
 - Use `snap` to install software.
 
-`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend`.
+`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend spotify 
 `sudo snap install opentofu --classic`
 
 - Install [Google Chrome](https://www.google.com/chrome/) using :-
@@ -100,13 +100,23 @@ apt install google-chrome-unstable
 - Install [Vagrant](https://developer.hashicorp.com/vagrant) with the [Hashicorp Install Instructions](https://developer.hashicorp.com/vagrant/install)
   - You may need to change the Debian codename in `/etc/apt/sources.list.d/hashicorp.list`, as it won't have sid. Go to current stable release codename.
 
-- Install ulauncher by getting a [release](https://github.com/Ulauncher/Ulauncher/releases/), .deb file and doing `sudo apt install ~/Downloads/ulauncher_5.15.7_all.deb` to install it, correcting the version.
+- Install [ulauncher](https://ulauncher.io/) by getting a [release](https://github.com/Ulauncher/Ulauncher/releases/), .deb file and doing `sudo apt install ~/Downloads/ulauncher_5.15.7_all.deb` to install it, correcting the version.
   - Also follow the [Wayland Instructions](https://github.com/Ulauncher/Ulauncher/wiki/Hotkey-In-Wayland)
 
-- Install the systemd TUI.
+- Install the [systemd TUI](https://github.com/rgwood/systemctl-tui). `cargo install systemctl-tui --locked`
+
+- Install [bun](https://bun.sh/) with `curl -fsSL https://bun.sh/install | bash`
+
+- Install [pgadmin4](https://www.pgadmin.org/) by following the [install instructions](https://www.pgadmin.org/download/pgadmin-4-apt/)
+
+- Install [Cursor] by going to the page, selecting "Download for Linux", then doing the commands below (selecting the current version).
 
 ```
-cargo install systemctl-tui --locked
+sudo mkdir -p /opt/cursor
+sudo mv ~/Downloads/Cursor-0.49.6-x86_64.AppImage /opt/cursor/
+chmod a+x /opt/cursor/Cursor-0.49.6-x86_64.AppImage
+echo "alias cursor=/opt/cursor/Cursor-0.49.6-x86_64.AppImage" >> ~/.bashrc.local
+. ~/.bashrc.local
 ```
 
 ## Add Gnome Extensions
@@ -114,8 +124,6 @@ cargo install systemctl-tui --locked
 ```
 gext install tophat@fflewddur.github.io
 gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
-
-
 ```
 
 ## Setup ollama mistral as local LLM.
@@ -169,7 +177,7 @@ gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
 
 - Edit `/etc/ssh/sshd_config` and uncomment and set `PasswordAuthentication no`
 
-## Initalise the locate database.
+## Init the locate database.
 
 - `sudo updatedb`
 
