@@ -381,12 +381,17 @@ _prompt_command
 ##################
 
 # Source the default bash completions.
-source /etc/profile.d/bash_completion.sh
+
+if [ -f /etc/profile.d/bash_completion.sh ]; then
+  source /etc/profile.d/bash_completion.sh
+fi
 
 # Source our custom bash completions
-for FILE in ~/.bash_completion.d/*; do
-  source "$FILE"
-done
+if [ -d ~/.bash_completion.d/ ]; then
+  for FILE in ~/.bash_completion.d/*; do
+    source "$FILE"
+  done
+fi
 
 ##############
 ## Color LS ##
