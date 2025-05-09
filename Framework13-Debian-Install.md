@@ -67,8 +67,10 @@ In `Settings`.
 - Install the following packages.
 
 ```
-apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak
 ```
+
+- Add flathub to software sources with `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
 
 - Use [Microsoft's Instructions](https://code.visualstudio.com/docs/setup/linux) to get vscode.
   - Use `dpkg -i ~/Downloads/code...` to install.
@@ -108,6 +110,8 @@ apt install google-chrome-unstable
 
 - Install [pgadmin4](https://www.pgadmin.org/) by following the [install instructions](https://www.pgadmin.org/download/pgadmin-4-apt/)
 
+- Install Gear Lever to manage flatpaks with `flatpak install flathub it.mijorus.gearlever`.
+
 - Install [Cursor] by going to the page, selecting "Download for Linux", then doing the commands below (selecting the current version).
 
 ```
@@ -117,6 +121,9 @@ chmod a+x /opt/cursor/Cursor-0.49.6-x86_64.AppImage
 echo "alias cursor=/opt/cursor/Cursor-0.49.6-x86_64.AppImage" >> ~/.bashrc.local
 . ~/.bashrc.local
 ```
+
+- Install [Youtube Music Desktop](https://github.com/ytmdesktop/ytmdesktop) with `flatpak install flathub app.ytmdesktop.ytmdesktop`
+ - Then launch it with `flatpak run app.ytmdesktop.ytmdesktop` and pin it to the dock
 
 ## Add Gnome Extensions
 
@@ -132,7 +139,7 @@ gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
 ## Setup Default Apps
 
 - Search for `apps` and pick `default apps`.
-- Set `web` to be `google chrome unstable`
+- Set `web` to be `googlte chrome unstable`
 
 ## Add groups for apps
 
