@@ -30,6 +30,19 @@ Use fn + space to turn on the keyboard backlight if required.
 - Install the `firmware-mediatek package`, to get wifi access.
 - Add your user to the sudo group with `vi /etc/group`
 
+## Add Experimental
+
+Add this to /etc/apt/sources.list.d/experimental.sources
+
+```
+Types: deb deb-src
+URIs: http://deb.debian.org/debian/
+Suites: experimental
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+```
+```
+
 ## Reboot
 
 - Reboot so your wifi and keyboard work.
@@ -58,16 +71,12 @@ In `Settings`.
 - In Keyboard, Set Compose Key -> Right Alt, and Screenshot -> Interactive to Shift + Super + S.
 - In System, Set Time Format to 24 hours and Clock to display Seconds.
 
-## Setup GNOME Tweaks.
-
-- In `tweaks -> windows`, Turn on Minimize and Maximize Window Widgets.
-
 ## Installing software I use.
 
 - Install the following packages.
 
 ```
-apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak binutils-dev clang  libbpf-dev libbpf-tools libelf-dev llvm pkg-config zlib1g-dev lldpd tcpdump
 ```
 
 - Add flathub to software sources with `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
@@ -110,7 +119,8 @@ apt install google-chrome-unstable
 
 - Install [pgadmin4](https://www.pgadmin.org/) by following the [install instructions](https://www.pgadmin.org/download/pgadmin-4-apt/)
 
-- Install Gear Lever to manage flatpaks with `flatpak install flathub it.mijorus.gearlever`.
+- Install Gear Lever to manage flatpaks with `flatpak install flathub it.mijorus.gearlever app/org.ghidra_sre.Ghidra/x86_64/stable
+`.
 
 - Install [Cursor] by going to the page, selecting "Download for Linux", then doing the commands below (selecting the current version).
 
@@ -124,15 +134,41 @@ echo "alias cursor=/opt/cursor/Cursor-0.49.6-x86_64.AppImage" >> ~/.bashrc.local
 
 - Install [Youtube Music Desktop](https://github.com/ytmdesktop/ytmdesktop) with `flatpak install flathub app.ytmdesktop.ytmdesktop`
  - Then launch it with `flatpak run app.ytmdesktop.ytmdesktop` and pin it to the dock
+ - Download my "Focus" playlists.
+
+- Install Gear Lever to manage flatpaks, with `flatpak install it.mijorus.gearlever`
 
 ## Add Gnome Extensions
 
 ```
 gext install tophat@fflewddur.github.io
+gext install just-perfection-desktop@just-perfection
+gext install blur-my-shell@aunetx
+gext install space-bar@luchrioh
+
+gsettings set org.gnome.shell.extensions.blur-my-shell.appfolder blur false
+gsettings set org.gnome.shell.extensions.blur-my-shell.lockscreen blur false
+gsettings set org.gnome.shell.extensions.blur-my-shell.screenshot blur false
+gsettings set org.gnome.shell.extensions.blur-my-shell.window-list blur false
+gsettings set org.gnome.shell.extensions.blur-my-shell.panel blur false
+gsettings set org.gnome.shell.extensions.blur-my-shell.overview blur true
+gsettings set org.gnome.shell.extensions.blur-my-shell.overview pipeline 'pipeline_default'
+gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock blur true
+gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock brightness 0.6
+gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock sigma 30
+gsettings set org.gnome.shell.extensions.blur-my-shell.dash-to-dock static-blur true
+
+gsettings set org.gnome.shell.extensions.space-bar.behavior smart-workspace-names false
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-activate-workspace-shortcuts false
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts enable-move-to-workspace-shortcuts true
+gsettings set org.gnome.shell.extensions.space-bar.shortcuts open-menu "@as []"
+
 gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
+
+gsettings set org.gnome.desktop.interface clock-show-weekday true
 ```
 
-## Setup ollama mistral as local LLM.
+## Setup ollama/mistral as local LLM.
 
 - `ollama pull mistral`
 
@@ -190,6 +226,22 @@ gsettings set org.gnome.shell.extensions.tophat network-usage-unit bits
 ## Setup filesystem snapshotting
 
 - `snapper -c root create-config /`
+
+## Install 0xtools
+
+- Currently you need to install the [next version](https://github.com/tanelpoder/0xtools/tree/master/next) to use modern EBPF tools, but this may change.
+
+## Let non-root users run tcpdump.
+
+- `sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/tcpdump`
+
+## In `tweaks`, do 
+
+- Fonts -> Monospace Text -> Fira code
+- Apperance -> Legacy Apps -> Adwaita-Dark
+- Windows -> Titlebar Buttons -> Maximize
+- Windows -> Titlebar Buttons -> Minimize
+- Startup Applications -> Remove Mattermost
 
 ## Reboot
 
