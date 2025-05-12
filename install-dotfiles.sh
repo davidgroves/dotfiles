@@ -27,7 +27,6 @@ done
 
 # create a file for neovim
 echo "Setting up nvim config"
-rm -r ~/.config/nvim
 mkdir -p ~/.config/nvim
 cp -r config/nvim/* ~/.config/nvim
 
