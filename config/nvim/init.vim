@@ -206,7 +206,6 @@ set ruler
 set number
 
 let no_buffers_menu=1
-colorscheme hackerman
 
 
 " Better command line completion 
