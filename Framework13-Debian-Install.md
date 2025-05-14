@@ -138,6 +138,10 @@ echo "alias cursor=/opt/cursor/Cursor-0.49.6-x86_64.AppImage" >> ~/.bashrc.local
 
 - Install Gear Lever to manage flatpaks, with `flatpak install it.mijorus.gearlever`
 
+- Install lazysql with `go install github.com/jorgerojas26/lazysql@latest`
+
+- Install the jc tool to convet GNU coreutils output to json. `uv tool install jc`
+
 ## Add Gnome Extensions
 
 ```
