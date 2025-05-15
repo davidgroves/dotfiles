@@ -211,8 +211,8 @@ let no_buffers_menu=1
 " Better command line completion 
 set wildmenu
 
-" mouse support
-set mouse=a
+" mouse support off
+set mouse=
 
 set mousemodel=popup
 set t_Co=256
