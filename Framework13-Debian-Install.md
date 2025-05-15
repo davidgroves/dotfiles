@@ -76,7 +76,7 @@ In `Settings`.
 - Install the following packages.
 
 ```
-apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak binutils-dev clang  libbpf-dev libbpf-tools libelf-dev llvm pkg-config zlib1g-dev lldpd tcpdump ncal exiftool bpytop ipcalc ipv6calc figlet yt-dlp grip yq delta
+apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli opentofu golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak binutils-dev clang  libbpf-dev libbpf-tools libelf-dev llvm pkg-config zlib1g-dev lldpd tcpdump ncal exiftool bpytop ipcalc ipv6calc figlet yt-dlp grip yq 
 ```
 
 - Add flathub to software sources with `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
@@ -143,6 +143,8 @@ echo "alias cursor=/opt/cursor/Cursor-0.49.6-x86_64.AppImage" >> ~/.bashrc.local
 - Install lazysql with `go install github.com/jorgerojas26/lazysql@latest`
 
 - Install the jc tool to convet GNU coreutils output to json. `uv tool install jc`
+
+- Install delta using the instructions at `https://github.com/dandavison/delta#get-started`
 
 ## Add Gnome Extensions
 
