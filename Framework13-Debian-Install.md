@@ -123,15 +123,7 @@ apt install google-chrome-unstable
 - Install Gear Lever to manage flatpaks with `flatpak install flathub it.mijorus.gearlever app/org.ghidra_sre.Ghidra/x86_64/stable
 `.
 
-- Install [Cursor] by going to the page, selecting "Download for Linux", then doing the commands below (selecting the current version).
-
-```
-sudo mkdir -p /opt/cursor
-sudo mv ~/Downloads/Cursor-0.49.6-x86_64.AppImage /opt/cursor/
-chmod a+x /opt/cursor/Cursor-0.49.6-x86_64.AppImage
-echo "alias cursor=/opt/cursor/Cursor-0.49.6-x86_64.AppImage" >> ~/.bashrc.local
-. ~/.bashrc.local
-```
+- Install [Cursor](https://cursor.com) by following [this install tutorial](https://forum.cursor.com/t/tutorial-install-cursor-permanently-when-appimage-install-didnt-work-on-linux/7712). See the instructions below for a systemwide install.
 
 - Install [Youtube Music Desktop](https://github.com/ytmdesktop/ytmdesktop) with `flatpak install flathub app.ytmdesktop.ytmdesktop`
  - Then launch it with `flatpak run app.ytmdesktop.ytmdesktop` and pin it to the dock
