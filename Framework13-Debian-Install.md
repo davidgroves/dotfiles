@@ -41,7 +41,6 @@ Suites: experimental
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
-```
 
 ## Reboot
 
@@ -91,7 +90,7 @@ apt install build-essential neovim git tmux curl gimp vlc imagemagick neomutt ru
 
 - Use `snap` to install software.
 
-`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend spotify 
+`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend spotify`
 `sudo snap install opentofu --classic`
 
 - Get screensharing to work with slack by editing `/var/lib/snapd/desktop/applications/slack_slack.desktop` and adding `--enable-features=WebRTCPipeWireCapturer` to the `Exec` line.
