@@ -67,6 +67,9 @@ export MANPAGER='less -X'
 # ALIASES #
 ###########
 
+# Cls for clear screen
+alias cls="clear"
+
 # Always run bc with -l so division works like you would expected.
 alias bc="bc -l"
 
