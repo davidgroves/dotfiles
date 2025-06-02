@@ -75,7 +75,15 @@ In `Settings`.
 - Install the following packages.
 
 ```
-apt install -y build-essential neovim git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua5.4 libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak binutils-dev clang  libbpf-dev libbpf-tools libelf-dev llvm pkg-config zlib1g-dev lldpd tcpdump ncal exiftool bpytop ipcalc ipv6calc figlet yt-dlp grip yq libvirt-dev libssl-dev libevent-dev bison flex libprotobuf-dev protobuf-c-compiler fstrm-bin libfstrm-dev protobuf-compiler libprotobuf-c-dev libsystemd-dev whois btop nmap ncat ndiff 
+apt install -y build-essential git tmux curl gimp vlc imagemagick neomutt rustc cargo fd-find fzf jq hyperfine bat ripgrep pandoc poppler-utils snapd gpg wireshark tshark virt-manager fonts-firacode lsd obs-studio bind9-tools awscli golang postgresql-client mariadb-client gh flatpak gnome-shell-extension-manager pipx knotdns-utils locate python-is-python3 dia graphviz texlive texlive-luatex wp2latex texlive-full lua5.4 libfuse2 texmaker audacity handbrake snapper gnome-software-plugin-flatpak binutils-dev clang  libbpf-dev libbpf-tools libelf-dev llvm pkg-config zlib1g-dev lldpd tcpdump ncal exiftool bpytop ipcalc ipv6calc figlet yt-dlp grip yq libvirt-dev libssl-dev libevent-dev bison flex libprotobuf-dev protobuf-c-compiler fstrm-bin libfstrm-dev protobuf-compiler libprotobuf-c-dev libsystemd-dev whois btop nmap ncat ndiff neovim exuberant-ctags vim-scripts 
+```
+
+- Add bob for neovim version installs.
+
+```
+cargo install bob-nvim
+
+
 ```
 
 - Add flathub to software sources with `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
@@ -141,6 +149,8 @@ apt install google-chrome-unstable
 - Install [OpenRDAP](https://github.com/openrdap/rdap) using `go install github.com/openrdap/rdap/cmd/rdap@master`
 
 - Install [Ghostty](https://ghostty.org/) using `snap install ghostty --classic`
+
+- Install [Containerlabs](https://containerlab.dev/) using `curl -sL https://containerlab.dev/setup | sudo -E bash -s "all"`
 
 
 ## Add Gnome Extensions
