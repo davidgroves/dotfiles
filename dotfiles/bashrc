@@ -307,6 +307,11 @@ function set_virtualenv() {
   fi
 }
 
+function _demo_prompt_command() {
+    history -a
+    PS1="$ "
+}
+
 function _prompt_command() {
   # Get rcode first to prevent it from being overwritten
   RCODE=$?
@@ -378,6 +383,18 @@ export PROMPT_COMMAND=_prompt_command
 
 # Run this or the first displayed prompt wont look correct.
 _prompt_command
+
+function regular_prompt {
+    export PROMPT_COMMAND=_prompt_command
+    export PS1
+    _prompt_command
+}
+
+function demo_prompt {
+    export PROMPT_COMMAND=_demo_prompt_command
+    _demo_prompt_command
+}
+
 
 ##################
 ## Autocomplete ##
