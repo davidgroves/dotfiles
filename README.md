@@ -23,26 +23,11 @@ A checklist of tools I'd like to install on a workstation system, with Debian 12
 - [uv](https://github.com/astral-sh/uv). Astral. A tool to make working with Python packages fast and sane.
 
 ```
-########## DEBIAN 12 INSTALL GUIDE ########## 
+########## DEBIAN 12/13 INSTALL GUIDE ########## 
 
-sudo snap install cheat
-sudo apt install fd-find
-pipx install grip
-sudo apt install delta-git
-sudo snap install dust
-sudo apt install fzf
-sudo apt install jq
-sudo apt install hyperfine
-sudo apt install bat
-
-# uv is currently not packaged in Debian, but you can use
-sudo apt install pipx
-pipx install uv
-
-# Ripgrep
-sudo apt install ripgrep pandoc poppler-utils ffmpeg
-
-# Ripgrep-all must have the binary installed manually.
+sudo apt install snapd fd-find delta-git fzf jq hyperfine bat pipx ripgrep pandoc poppler-utils ffmpeg
+sudo snap install cheat dust
+pipx install grip ux
 
 ######### #OSX / Homebrew Install ########## 
 
@@ -56,9 +41,5 @@ brew install hyperfine
 brew install bat
 brew install tree
 brew install uv
-```
-```
-```
-```
 ```
 
