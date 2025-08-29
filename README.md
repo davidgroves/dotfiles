@@ -25,9 +25,10 @@ A checklist of tools I'd like to install on a workstation system, with Debian 12
 ```
 ########## DEBIAN 12/13 INSTALL GUIDE ########## 
 
-sudo apt install snapd fd-find delta-git fzf jq hyperfine bat pipx ripgrep pandoc poppler-utils ffmpeg
+sudo apt install snapd fd-find delta-git fzf jq hyperfine bat pipx ripgrep pandoc poppler-utils ffmpeg golang
+sudo go install github.com/jesseduffield/lazydocker@latest
 sudo snap install cheat dust
-pipx install grip ux
+pipx install grip uv
 
 ######### #OSX / Homebrew Install ########## 
 
