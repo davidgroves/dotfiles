@@ -451,6 +451,11 @@ if [ -f "${HOME}/.cargo/env" ]; then
   . "$HOME/.cargo/env"
 fi
 
+# Add .cargo to path if it exists
+if [ -d "${HOME}/.cargo/bin" ]; then
+    PATH=$HOME/.cargo/bin:$PATH
+fi
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
