@@ -34,6 +34,7 @@
     autocrlf = input
     excludefiles = ~/.gitignore
     pager = delta
+	excludesfile = /Users/david.groves/.gitignore_global
 
 [color]
 [color "branch"]
