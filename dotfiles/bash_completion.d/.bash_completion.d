@@ -1,1 +1,0 @@
-/Users/david.groves/dotfiles/dotfiles/bash_completion.d
