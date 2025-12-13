@@ -216,7 +216,7 @@ set mouse=
 
 set mousemodel=popup
 set t_Co=256
-#set guioptions=egmrti
+" set guioptions=egmrti
 set gfn=Monospace\ 10
 
 if has("gui_running")
