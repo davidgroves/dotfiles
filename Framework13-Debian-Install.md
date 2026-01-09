@@ -98,7 +98,7 @@ cargo install bob-nvim
 
 - Use `snap` to install software.
 
-`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend spotify`
+`sudo snap install bitwarden ferdium cheat slack discord rawtherapee mattermost-desktop teams-for-linux pinta localsend spotify dive`
 `sudo snap install opentofu --classic`
 
 - Get screensharing to work with slack by editing `/var/lib/snapd/desktop/applications/slack_slack.desktop` and adding `--enable-features=WebRTCPipeWireCapturer` to the `Exec` line.
