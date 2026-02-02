@@ -25,7 +25,7 @@ A checklist of tools I'd like to install on a workstation system, with Debian 12
 ```
 ########## DEBIAN 12/13 INSTALL GUIDE ########## 
 
-sudo apt install snapd fd-find delta-git fzf jq hyperfine bat pipx ripgrep pandoc poppler-utils ffmpeg golang
+sudo apt install snapd fd-find delta-git fzf lzd jq hyperfine bat pipx ripgrep pandoc poppler-utils ffmpeg golang
 sudo go install github.com/jesseduffield/lazydocker@latest
 sudo snap install cheat dust
 curl -LsSf https://astral.sh/uv/install.sh | sh
