@@ -25,6 +25,10 @@ for FILE in $(
   ln -sf $SOURCEDIR/$FILE ~/.$FILE
 done
 
+# Backup the ssh config
+mkdir -p $BACKUPDIR/ssh
+cp ~/.ssh/config $BACKUPDIR/ssh/config
+
 # create a file for neovim
 echo "Setting up nvim config"
 mkdir -p ~/.config/nvim
@@ -38,3 +42,7 @@ cp -r config/protobuffs/* ~/.config/protobuffs
 echo "Setting up neomutt"
 mkdir -p ~/.config/neomutt/
 cp -r config/neomutt/* ~/.config/neomutt
+
+echo "Setting up SSH config"
+mkdir -p ¬/.ssh/
+cp ssh/config ~/.ssh/config
