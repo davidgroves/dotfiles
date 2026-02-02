@@ -44,5 +44,5 @@ mkdir -p ~/.config/neomutt/
 cp -r config/neomutt/* ~/.config/neomutt
 
 echo "Setting up SSH config"
-mkdir -p ¬/.ssh/
+mkdir -p ~/.ssh/
 cp ssh/config ~/.ssh/config
