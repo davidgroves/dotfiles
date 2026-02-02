@@ -13,9 +13,6 @@ Host *
     ServerAliveInterval 60
     ServerAliveCountMax 3
 
-    # --- Quality of Service (QoS) ---
-    IPQoS as21 cs1
-
     # --- Connection Multiplexing ---
     ControlMaster auto
     ControlPath ~/.ssh/sockets/%r@%h:%p
