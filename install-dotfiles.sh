@@ -26,8 +26,8 @@ for FILE in $(
 done
 
 # Backup the ssh config
-mkdir -p $BACKUPDIR/ssh
-cp ~/.ssh/config $BACKUPDIR/ssh/config
+mkdir -p $BACKDIR/ssh
+cp ~/.ssh/config $BACKDIR/ssh/config
 
 # create a file for neovim
 echo "Setting up nvim config"

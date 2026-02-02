@@ -14,7 +14,7 @@ Host *
     ServerAliveCountMax 3
 
     # --- Quality of Service (QoS) ---
-    IPQoS interactive
+    IPQoS as21 cs1
 
     # --- Connection Multiplexing ---
     ControlMaster auto
