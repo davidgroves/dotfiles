@@ -27,6 +27,7 @@
     default = simple
 	  autoSetupRemote = true
     followTags = true
+    autoSetupRemote = true
 
 [core]
     # ctime on OSX is broken so just dont do this anywhere
