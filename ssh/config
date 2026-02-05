@@ -1,0 +1,24 @@
+Host *
+    # --- Fingerprint Verification ---
+    # Automatically look up SSHFP records in DNS
+    VerifyHostKeyDNS yes
+    
+    # --- Forwarding ---
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+
+    # --- Keepalives ---
+    TCPKeepAlive yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+
+    # --- Connection Multiplexing ---
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h:%p
+    ControlPersist 10m
+
+    # --- Security Policy ---
+    # Note: 'ask' is default; with VerifyHostKeyDNS, if a matching 
+    # DNS record is found, it will skip the manual prompt.
+    StrictHostKeyChecking ask
