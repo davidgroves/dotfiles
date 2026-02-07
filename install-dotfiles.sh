@@ -50,3 +50,10 @@ cp -r config/neomutt/* ~/.config/neomutt
 echo "Setting up SSH config"
 mkdir -p ~/.ssh/
 cp ssh/config ~/.ssh/config
+
+echo "Setting up .local/bin/env"
+mkdir -p ¬/.local/bin
+touch ~/.local/bin/env
+
+
+
